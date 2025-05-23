@@ -157,15 +157,18 @@ export default function Portfolio() {
                 "
                 >
                 <Link href={href} target="_blank" rel="noopener noreferrer">
-                  <span className="text-2xl font-mono group-hover:hidden sm:hidden">
-                  +
-                  </span>
-                  <span className="text-2xl font-mono hidden group-hover:block sm:block">
-                  →
-                  </span>
-                  <span className="text-xl font-mono hidden group-hover:block pl-8">
-                  {viewText}
-                  </span>
+                    <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
+                    +
+                    </span>
+                    <span className="text-2xl font-mono block group-hover:block sm:hidden">
+                    →
+                    </span>
+                    <span className="pl-4 text-2xl font-mono sm:group-hover:hidden group-hover:block hidden">
+                     View Project
+                    </span>
+                    <span className="text-xl font-mono hidden sm:group-hover:inline pl-4">
+                    {viewText}
+                    </span>
                 </Link>
                 </Button>
               </div>
