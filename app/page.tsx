@@ -27,6 +27,7 @@ type Project = {
   src: string;
   alt: string;
   href: string;
+  viewText: string;
 };
 
 const projects: Project[] = [
@@ -35,12 +36,14 @@ const projects: Project[] = [
     src: "/verdictr.png",
     alt: "Verdictr screenshot",
     href: "https://verdictr.github.io/",
+    viewText: "View Project | Verdictr | w/ Stanford",
   },
   {
     id: 2,
     src: "/lexflow.png",
     alt: "LexFlow screenshot",
     href: "https://github.com/ShriyanYamali/LexFlow",
+    viewText: "View Project | LexFlow | w/ UPenn",
   },
 ];
 
@@ -138,42 +141,42 @@ export default function Portfolio() {
               <h2 className="text-2xl font-mono">My Projects</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map(({ id, src, alt, href }) => (
-                <div
-                  key={id}
-                  className="relative h-[28rem] bg-gray-900 rounded-lg overflow-hidden"
-                >
-                  <Image src={src} alt={alt} fill className="object-cover" />
+              {projects.map(({ id, src, alt, href, viewText }) => (
+              <div
+                key={id}
+                className="relative h-[28rem] bg-gray-900 rounded-lg overflow-hidden"
+              >
+                <Image src={src} alt={alt} fill className="object-cover" />
 
-                  <Button
-                    asChild
-                    variant="projectb"
-                    size="icon"
-                    className="
-                      absolute bottom-2 left-2
-                      h-10 w-10
-                      overflow-hidden
-                      flex items-center
-                      transition-all duration-300 ease-in-out
-                      group
-                      hover:w-[calc(100%-1rem)]
-                      justify-start
-                      px-[0.875rem] 
-                    "
-                  >
-                    <Link href={href} target="_blank" rel="noopener noreferrer">
-                      <span className="text-2xl font-mono group-hover:hidden">
-                        +
-                      </span>
-                      <span className="text-2xl font-mono hidden group-hover:block">
-                        -
-                      </span>
-                      <span className="text-2xl font-mono hidden group-hover:block pl-8 underline">
-                        View Project
-                      </span>
-                    </Link>
-                  </Button>
-                </div>
+                <Button
+                asChild
+                variant="projectb"
+                size="icon"
+                className="
+                  absolute bottom-2 left-2
+                  h-10 w-10
+                  overflow-hidden
+                  flex items-center
+                  transition-all duration-300 ease-in-out
+                  group
+                  hover:w-[calc(100%-1rem)]
+                  justify-start
+                  px-[0.875rem] 
+                "
+                >
+                <Link href={href} target="_blank" rel="noopener noreferrer">
+                  <span className="text-2xl font-mono group-hover:hidden">
+                  +
+                  </span>
+                  <span className="text-2xl font-mono hidden group-hover:block">
+                  →
+                  </span>
+                  <span className="text-xl font-mono hidden group-hover:block pl-8">
+                  {viewText}
+                  </span>
+                </Link>
+                </Button>
+              </div>
               ))}
             </div>
           </section>
