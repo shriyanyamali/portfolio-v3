@@ -84,10 +84,8 @@ export default function Portfolio() {
             >
               <Link
                 href="https://www.shriyanyamali.tech/"
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                See Full Site <span className="text-2xl font-mono">→</span>
+                View Full Site <span className="text-2xl font-mono">→</span>
               </Link>
             </Button>
           </div>
@@ -128,12 +126,6 @@ export default function Portfolio() {
 
         {/* Main Content */}
         <main className="space-y-8">
-          {/* Mobile Menu */}
-          <div className="flex justify-end lg:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="w-6 h-6" />
-            </Button>
-          </div>
 
           {/* Projects */}
           <section>
