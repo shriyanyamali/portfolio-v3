@@ -157,7 +157,7 @@ export default function Portfolio() {
                 "
                 >
                 <Link href={href} target="_blank" rel="noopener noreferrer">
-                  <span className="text-2xl font-mono group-hover:hidden">
+                  <span className="text-2xl font-mono group-hover:hidden sm:hidden">
                   +
                   </span>
                   <span className="text-2xl font-mono hidden group-hover:block sm:block">
