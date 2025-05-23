@@ -160,7 +160,7 @@ export default function Portfolio() {
                   <span className="text-2xl font-mono group-hover:hidden">
                   +
                   </span>
-                  <span className="text-2xl font-mono hidden group-hover:block">
+                  <span className="text-2xl font-mono hidden group-hover:block sm:block">
                   →
                   </span>
                   <span className="text-xl font-mono hidden group-hover:block pl-8">
