@@ -4,12 +4,73 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, Twitter, Linkedin, Instagram, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type StackItem = {
   id: number;
   src: string;
   alt: string;
 };
+
+type TimelineItem = {
+  id: number;
+  date: string;
+  role: string;
+  org: string;
+};
+
+type Project = {
+  id: number;
+  src: string;
+  alt: string;
+  href: string;
+  viewText: string;
+};
+
+type Award = {
+  id: number;
+  label: string;
+};
+
+const timeline: TimelineItem[] = [
+  {
+    id: 1,
+    date: "Sept 2023 — May 2027 | Newark, Delaware",
+    role: "Student",
+    org: "Newark Charter High School",
+  },
+  {
+    id: 2,
+    date: "Sept 2024 — Jan 2025 | Newark, Delaware",
+    role: "Frontend Web Developer",
+    org: "University of Delaware",
+  },
+  {
+    id: 3,
+    date: "July 2024 — Jan 2025 | Hanover, New Hampshire",
+    role: "Assistant Editor",
+    org: "Dartmouth College",
+  },
+  {
+    id: 4,
+    date: "July 2024 — Aug 2024 | Philadelphia, Pennsylvania",
+    role: "Summer Intern",
+    org: "University of Pennsylvania Carey Law School",
+  },
+  {
+    id: 5,
+    date: "June 2024 — Present | Stanford, California",
+    role: "Programming Intern",
+    org: "Stanford Law School",
+  },
+  {
+    id: 6,
+    date: "June 2024 — Feb 2025 | Wilmington, Delaware",
+    role: "Research Assistant",
+    org: "Wilmington University School of Law",
+  },
+];
 
 const stackItems: StackItem[] = [
   { id: 1, src: "/nextjs-logo.svg", alt: "Next.js logo" },
@@ -22,13 +83,33 @@ const stackItems: StackItem[] = [
   { id: 8, src: "/css3-logo.svg", alt: "CSS3 logo" },
 ];
 
-type Project = {
-  id: number;
-  src: string;
-  alt: string;
-  href: string;
-  viewText: string;
-};
+const awards: Award[] = [
+  {
+    id: 1,
+    label: "1st Place – Computer Programming Concepts (BPA NLC 2025)",
+  },
+  {
+    id: 2,
+    label: "1st Place – Information Technology Concepts (BPA NLC 2025)",
+  },
+  {
+    id: 3,
+    label: "1st Place – Meeting & Event Planning Concepts (BPA NLC 2024)",
+  },
+  {
+    id: 4,
+    label: "1st Place – Management, Marketing & HR Concepts (BPA NLC 2024)",
+  },
+  {
+    id: 5,
+    label: "1st Place – Legal Office Procedures (BPA SLC 2024)",
+  },
+  {
+    id: 6,
+    label:
+      "2nd Place – Statewide in Debating Technological Issues (TSA SLC 2025)",
+  },
+];
 
 const projects: Project[] = [
   {
@@ -48,8 +129,64 @@ const projects: Project[] = [
 ];
 
 export default function Portfolio() {
+  const [resumeExpanded, setResumeExpanded] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
+  const resumeBottomRef = useRef<HTMLDivElement>(null);
+  const [resumeMaxH, setResumeMaxH] = useState("0px");
+
+  const [awardsExpanded, setAwardsExpanded] = useState(false);
+  const awardsRef = useRef<HTMLDivElement>(null);
+  const awardsBottomRef = useRef<HTMLDivElement>(null);
+  const [awardsMaxH, setAwardsMaxH] = useState("0px");
+
+  useEffect(() => {
+    if (!resumeRef.current) return;
+    const content = resumeRef.current.querySelector("ul");
+    setResumeMaxH(
+      resumeExpanded && content ? `${content.scrollHeight}px` : "0px"
+    );
+
+    if (resumeExpanded) {
+      setTimeout(() => {
+        const el = resumeBottomRef.current;
+        if (!el) return;
+
+        const absoluteBottom =
+          el.getBoundingClientRect().bottom + window.scrollY;
+        // pick an offset equal to ~1/3 of the viewport height
+        const extra = window.innerHeight / 3;
+        // scroll so that the bottom marker sits extra px from the top
+        const targetScroll = absoluteBottom - extra;
+
+        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+      }, 450); // match or slightly exceed your 500ms expand
+    }
+  }, [resumeExpanded]);
+
+  useEffect(() => {
+    if (!awardsRef.current) return;
+    const content = awardsRef.current.querySelector("ul");
+    setAwardsMaxH(
+      awardsExpanded && content ? `${content.scrollHeight}px` : "0px"
+    );
+
+    if (awardsExpanded) {
+      setTimeout(() => {
+        const el = awardsBottomRef.current;
+        if (!el) return;
+
+        const absoluteBottom =
+          el.getBoundingClientRect().bottom + window.scrollY;
+        const extra = window.innerHeight / 3;
+        const targetScroll = absoluteBottom - extra;
+
+        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+      }, 450);
+    }
+  }, [awardsExpanded]);
+
   return (
-    <div className="min-h-screen bg-black text-white p-6">
+    <div className="min-h-screen bg-black text-white p-6 ">
       <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-8">
         {/* Sidebar */}
         <aside className="space-y-8">
@@ -64,30 +201,30 @@ export default function Portfolio() {
             />
             <div>
               <h1 className="text-2xl font-mono">SHRIYAN Y.</h1>
-              <p className="text-gray-400">STUDENT</p>
             </div>
           </div>
 
           {/* Bio + Full Site Button */}
           <div className="space-y-6">
-            <p className="text-gray-300 text-md leading-relaxed font-mono pb-2">
+            <p className="text-gray-300 text-md leading-relaxed font-mono pb-8">
               Hi, I’m a high school student interested in computer science and
               law. I have experience in both fields, working with Stanford
               University and the University of Delaware, among other
               institutions, where I’ve done programming projects and conducted
               legal research. 4x BPA National Champion.
             </p>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-lg font-mono text-black hover:bg-gray-950 hover:text-white duration-300"
-            >
-              <Link
-                href="https://www.shriyanyamali.tech/"
-              >
-                View Full Site <span className="text-2xl font-mono">→</span>
-              </Link>
-            </Button>
+
+            <Link href="https://www.shriyanyamali.tech/">
+              <Button className="group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
+                <div className="font-mono inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
+                  View Full Site →
+                </div>
+                <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition duration-500 group-hover:translate-y-0">
+                  <span className="absolute h-full w-full translate-y-full skew-y-6 scale-y-0 bg-neutral-950 transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
+                  <span className="z-10 font-mono"> View Full Site →</span>
+                </div>
+              </Button>
+            </Link>
           </div>
 
           {/* Social Icons */}
@@ -126,7 +263,6 @@ export default function Portfolio() {
 
         {/* Main Content */}
         <main className="space-y-8">
-
           {/* Projects */}
           <section>
             <div className="flex justify-between items-center mb-4">
@@ -134,17 +270,17 @@ export default function Portfolio() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map(({ id, src, alt, href, viewText }) => (
-              <div
-                key={id}
-                className="relative h-[28rem] bg-gray-900 rounded-lg overflow-hidden"
-              >
-                <Image src={src} alt={alt} fill className="object-cover" />
+                <div
+                  key={id}
+                  className="relative h-[20rem] bg-gray-900 rounded-lg overflow-hidden"
+                >
+                  <Image src={src} alt={alt} fill className="object-cover" />
 
-                <Button
-                asChild
-                variant="projectb"
-                size="icon"
-                className="
+                  <Button
+                    asChild
+                    variant="projectb"
+                    size="icon"
+                    className="
                   absolute bottom-2 left-2
                   h-10 w-10
                   overflow-hidden
@@ -155,23 +291,23 @@ export default function Portfolio() {
                   justify-start
                   px-[0.875rem] 
                 "
-                >
-                <Link href={href} target="_blank" rel="noopener noreferrer">
-                    <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
-                    +
-                    </span>
-                    <span className="text-2xl font-mono block group-hover:block sm:hidden">
-                    →
-                    </span>
-                    <span className="pl-4 text-2xl font-mono sm:group-hover:hidden group-hover:block hidden">
-                     View Project
-                    </span>
-                    <span className="text-xl font-mono hidden sm:group-hover:inline pl-4">
-                    {viewText}
-                    </span>
-                </Link>
-                </Button>
-              </div>
+                  >
+                    <Link href={href} target="_blank" rel="noopener noreferrer">
+                      <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
+                        +
+                      </span>
+                      <span className="text-2xl font-mono block group-hover:block sm:hidden">
+                        →
+                      </span>
+                      <span className="pl-4 text-2xl font-mono sm:group-hover:hidden group-hover:block hidden">
+                        View Project
+                      </span>
+                      <span className="text-xl font-mono hidden sm:group-hover:inline pl-4">
+                        {viewText}
+                      </span>
+                    </Link>
+                  </Button>
+                </div>
               ))}
             </div>
           </section>
@@ -185,7 +321,12 @@ export default function Portfolio() {
               {stackItems.map(({ id, src, alt }) => (
                 <div
                   key={id}
-                  className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden"
+                  className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden
+                  transform transition duration-300 ease-in-out
+                hover:bg-neutral-800
+                  hover:ring-2
+                  hover:ring-white
+                  "
                 >
                   <Image
                     src={src}
@@ -199,35 +340,172 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* Contact & Resume */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              {
-                title: "Contact",
-                link: "mailto:yamalishriyan@gmail.com",
-              },
-              {
-                title: "Resume",
-                link: "https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf",
-              },
-            ].map(({ title, link }) => (
-              <section
-                key={title}
-                className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6"
-              >
-                <h2 className="text-2xl font-mono mb-4">{title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-stretch">
+            {" "}
+            {/* ─── Left column: Contact + Awards ─── */}
+            <div className="space-y-4 md:col-span-1">
+              {/* Contact */}
+              <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
+                <h2 className="text-2xl font-mono mb-4">Contact</h2>
                 <Button
                   asChild
                   variant="ghost"
                   size="icon"
                   className="absolute right-4 top-4"
                 >
-                  <Link href={link}>
+                  <Link href="mailto:yamalishriyan@gmail.com">
                     <span className="text-2xl font-mono">→</span>
                   </Link>
                 </Button>
               </section>
-            ))}
+
+              {/* Awards (static or expandable as you already have it) */}
+              <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-mono">Awards</h2>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setAwardsExpanded((v) => !v)}
+                  >
+                    <span className="text-2xl font-mono">
+                      {awardsExpanded ? "–" : "+"}
+                    </span>
+                  </Button>
+                </div>
+                <div
+                  ref={awardsRef}
+                  style={{ maxHeight: awardsMaxH }}
+                  className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                >
+                  <AnimatePresence>
+                    {awardsExpanded && (
+                      <ul className="pt-2 space-y-2">
+                        {awards.map((award, i) => (
+                          <motion.li
+                            key={award.id}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -5 }}
+                            transition={{
+                              delay: i * 0.1,
+                              type: "spring",
+                              stiffness: 200,
+                            }}
+                            className="text-base font-mono bg-gray-800 rounded px-3 py-2"
+                          >
+                            {award.label}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+                <div ref={awardsBottomRef} />
+              </section>
+            </div>
+            {/* Right column: Resume */}
+            <div className="md:col-span-1 h-full">
+              <section
+                className={`
+                  h-full
+                  relative overflow-hidden rounded-xl
+                  bg-gradient-to-br from-gray-900 to-gray-800
+                  p-6
+                  ${resumeExpanded ? "pb-6" : "pb-[1.5rem]"}
+                `}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-mono">Resume</h2>
+                  <Link
+                    href="https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf"
+                    className="sm:w-[65%]"
+                  >
+                    <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
+                      <div className="font-mono text-lg translate-x-0 opacity-100 transition group-hover:-translate-x-[150%] group-hover:opacity-0">
+                        View PDF
+                      </div>
+                      <div className="absolute translate-x-[150%] opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fillRule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setResumeExpanded((v) => !v)}
+                  >
+                    <span className="text-2xl font-mono">
+                      {resumeExpanded ? "–" : "+"}
+                    </span>
+                  </Button>
+                </div>
+                <div>
+                  <span className="text-2xl font-mono">
+                    {!resumeExpanded && (
+                      <div className="mt-4 space-y-2 text-base font-mono text-gray-400">
+                        <p>
+                          <span className="font-extrabold">
+                            Extracurricular Activities & Leadership:
+                          </span>{" "}
+                          CSHS President, Student Council President, BPA Chapter
+                          Officer, TSA, Mock Trial.
+                        </p>
+                      </div>
+                    )}
+                  </span>
+                </div>
+                <div
+                  ref={resumeRef}
+                  style={{ maxHeight: resumeMaxH }}
+                  className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                >
+                  <AnimatePresence>
+                    {resumeExpanded && (
+                      <ul className="space-y-4 pt-2">
+                        {timeline.map((item, i) => (
+                          <motion.li
+                            key={item.id}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -5 }}
+                            transition={{
+                              delay: i * 0.1,
+                              type: "spring",
+                              stiffness: 200,
+                            }}
+                            className="bg-gray-800 rounded-md p-4 font-mono"
+                          >
+                            <div className="text-sm text-gray-400">
+                              {item.date}
+                            </div>
+                            <div className="mt-1 text-base">{item.org}</div>
+                            <div className="text-base text-gray-500">
+                              {item.role}
+                            </div>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+                <div ref={resumeBottomRef} />
+              </section>
+            </div>
           </div>
         </main>
       </div>
