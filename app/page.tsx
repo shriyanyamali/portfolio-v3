@@ -204,7 +204,7 @@ export default function Portfolio() {
             {[
               {
                 title: "Contact",
-                link: "https://www.shriyanyamali.tech/contact",
+                link: "mailto:yamalishriyan@gmail.com",
               },
               {
                 title: "Resume",
