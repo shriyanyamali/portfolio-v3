@@ -493,12 +493,12 @@ export default function Portfolio() {
 
             <Link href="https://www.shriyanyamali.tech/">
               <Button className="mt-8 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
-                <div className="font-mono inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
+                <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
                   View Full Site →
                 </div>
                 <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition duration-500 group-hover:translate-y-0">
                   <span className="absolute h-full w-full translate-y-full skew-y-6 scale-y-0 bg-neutral-950 transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
-                  <span className="z-10 font-mono"> View Full Site →</span>
+                  <span className="z-10 font-mono font-bold"> View Full Site →</span>
                 </div>
               </Button>
             </Link>
