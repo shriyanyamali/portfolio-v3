@@ -625,17 +625,14 @@ export default function Portfolio() {
             <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
               {/* Contact */}
               <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                <h2 className="text-2xl font-mono mb-4">Contact</h2>
-                <Button
-                  asChild
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-4 top-4"
-                >
-                  <Link href="mailto:yamalishriyan@gmail.com">
-                    <span className="text-2xl font-mono">→</span>
-                  </Link>
-                </Button>
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-mono">Contact</h2>
+                  <Button asChild variant="ghost" size="icon">
+                    <Link href="mailto:yamalishriyan@gmail.com">
+                      <span className="text-2xl font-mono">→</span>
+                    </Link>
+                  </Button>
+                </div>
               </section>
 
               {/* Awards (static or expandable as you already have it) */}
