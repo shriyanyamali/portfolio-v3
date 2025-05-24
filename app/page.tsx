@@ -187,7 +187,7 @@ export default function Portfolio() {
           clearInterval(scrambleInterval);
           setActive(false);
         }
-        iteration += 1 / 3;
+        iteration += 1 / 5;
       }, 30);
     };
 
@@ -297,15 +297,10 @@ export default function Portfolio() {
             />
             <div>
               <h1
-                  ref={headingRef}
-                  data-value="SHRIYAN YAMALI"
-                  className={`
-                  text-2xl font-mono p-2 rounded transition-colors duration-500
-                  ${
-                    active
-                      ? "bg-white text-black"
-                      : "bg-black text-white hover:bg-white hover:text-black"
-                  }
+                ref={headingRef}
+                data-value="SHRIYAN YAMALI"
+                className={`
+                  text-2xl font-mono p-2 rounded transition-colors duration-500 ease-in-out
                 `}
               >
                 SHRIYAN YAMALI
@@ -469,7 +464,7 @@ export default function Portfolio() {
               </div>{" "}
               and an awardee of the{" "}
               <span
-                className="relative inline-block cursor-pointer font-semibold text-white hover:text-yellow-400 italic transition-colors"
+                className="relative inline cursor-pointer font-semibold text-white hover:text-yellow-400 italic transition-colors break-words"
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}
                 onMouseMove={handleMouseMove}
@@ -515,11 +510,11 @@ export default function Portfolio() {
               {[
                 {
                   icon: <Instagram className="w-5 h-5" />,
-                  url: "https://www.instagram.com/_shriyanyamali/",
+                  url: "https://www.instagram.com/shriyanyamali/",
                 },
                 {
                   icon: <Twitter className="w-5 h-5" />,
-                  url: "https://x.com/Shriyan_Y",
+                  url: "https://x.com/shriyanyamali",
                 },
                 {
                   icon: <Linkedin className="w-5 h-5" />,
@@ -537,6 +532,8 @@ export default function Portfolio() {
                 </Button>
               ))}
             </div>
+            <p className="font-mono text-sm">@shriyanyamali everywhere</p>
+
             <div className="text-gray-400 text-sm font-mono">
               <p>Copyright &copy; {new Date().getFullYear()} Shriyan Yamali.</p>
             </div>
