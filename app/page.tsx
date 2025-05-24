@@ -129,6 +129,11 @@ const projects: Project[] = [
 ];
 
 export default function Portfolio() {
+  const [hoverStanford, setHoverStanford] = useState(false);
+  const [hoverDelaware, setHoverDelaware] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const [resumeMinH, setResumeMinH] = useState<string>("0px");
 
@@ -141,6 +146,25 @@ export default function Portfolio() {
   const awardsRef = useRef<HTMLDivElement>(null);
   const awardsBottomRef = useRef<HTMLDivElement>(null);
   const [awardsMaxH, setAwardsMaxH] = useState("0px");
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (leftColumnRef.current) {
@@ -201,7 +225,7 @@ export default function Portfolio() {
         {/* Sidebar */}
         <aside className="space-y-8">
           {/* Profile */}
-          <div className="flex items-center gap-4 pt-8">
+          <div className="flex items-center gap-4 pt-4">
             <Image
               src="/pfp-cropped.jpg"
               alt="Profile"
@@ -211,18 +235,151 @@ export default function Portfolio() {
             />
             <div>
               <h1 className="text-2xl font-mono">SHRIYAN YAMALI</h1>
-              <p className="text-base text-neutral-200 font-mono">📍Newark, Delaware</p>
+              <p className="text-base text-neutral-200 font-mono">
+                📍Newark, Delaware
+              </p>
             </div>
           </div>
 
           {/* Bio + Full Site Button */}
-          <div className="space-y-6">
+          <div className="space-y-6 relative" ref={containerRef}>
             <div className="pl-4 border-l-4 border-yellow-400 text-white text-md font-bold leading-relaxed font-mono">
-              Hi, I’m a high school student interested in computer science and
-              law. I have experience in both fields, working with Stanford
-              University and the University of Delaware, among other
-              institutions, where I’ve done programming projects and conducted
-              legal research. 4x BPA National Champion.
+              Hi, I’m a high school student interested in{" "}
+              <motion.span
+                className="text-cyan-400 inline-block"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.15, rotate: -3 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                computer science
+              </motion.span>{" "}
+              and{" "}
+              <motion.span
+                className="text-pink-500 inline-block"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.15, rotate: 3 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                law
+              </motion.span>
+              . I have worked with{" "}
+              <motion.span
+                className="italic inline-block cursor-pointer text-white"
+                onMouseEnter={() => setHoverStanford(true)}
+                onMouseLeave={() => setHoverStanford(false)}
+                transition={{ type: "spring", stiffness: 250 }}
+              >
+                Stanford University
+              </motion.span>
+              {hoverStanford && (
+                <motion.div
+                  className="absolute pointer-events-none z-50"
+                  style={{
+                    top: position.y,
+                    left: position.x,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                  initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1.1,
+                    rotate: [0, 5, -5, 0],
+                    transition: {
+                      scale: { type: "spring", stiffness: 500, damping: 10 },
+                      rotate: {
+                        duration: 0.2,
+                        repeat: 15,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                >
+                  <Image
+                    src="/stanford-tree.png"
+                    alt="Stanford Tree"
+                    width={60}
+                    height={60}
+                    className="rounded-full shadow-lg"
+                  />
+                </motion.div>
+              )}{" "}
+              and the{" "}
+              <motion.span
+                className="italic inline-block cursor-pointer text-white"
+                onMouseEnter={() => setHoverDelaware(true)}
+                onMouseLeave={() => setHoverDelaware(false)}
+                transition={{ type: "spring", stiffness: 250 }}
+              >
+                University of Delaware
+              </motion.span>
+              {hoverDelaware && (
+                <motion.div
+                  className="absolute pointer-events-none z-50"
+                  style={{
+                    top: position.y,
+                    left: position.x,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                  initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1.4,
+                    rotate: [0, 5, -5, 0],
+                    transition: {
+                      scale: { type: "spring", stiffness: 500, damping: 10 },
+                      rotate: {
+                        duration: 0.25,
+                        repeat: 15,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                >
+                  <Image
+                    src="/blue-hen.png"
+                    alt="Blue Hen"
+                    width={60}
+                    height={60}
+                    className="rounded-full shadow-lg"
+                  />
+                </motion.div>
+              )}
+              , among other institutions, where I’ve worked on programming
+              projects like{" "}
+              <motion.span
+                className="text-green-500 inline-block"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.4, rotate: 1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                Verdictr
+              </motion.span>{" "}
+              and
+              <motion.span
+                className="text-emerald-200 inline-block"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.2, rotate: -2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                LexFlow
+              </motion.span>{" "}
+              and conducted legal research.{" "}
+              <motion.span
+                className="underline inline-block"
+                initial={{ scale: 1, color: "#fff" }}
+                whileHover={{
+                  scale: 1.2,
+                  color: "#facc15",
+                  rotate: [0, -5, 5, 0],
+                  transition: { duration: 0.5 },
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                4x
+              </motion.span>{" "}
+              BPA National Champion.
             </div>
 
             <Link href="https://www.shriyanyamali.tech/">
@@ -273,7 +430,7 @@ export default function Portfolio() {
         </aside>
 
         {/* Main Content */}
-        <main className="space-y-8">
+        <main className="space-y-8 pt-4">
           {/* Projects */}
           <section>
             <div className="flex justify-between items-center mb-4">
