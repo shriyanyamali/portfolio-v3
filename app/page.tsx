@@ -216,16 +216,16 @@ export default function Portfolio() {
 
           {/* Bio + Full Site Button */}
           <div className="space-y-6">
-            <p className="text-gray-300 text-md leading-relaxed font-mono pb-8">
+            <div className="pl-4 border-l-4 border-yellow-400 text-white text-md font-bold leading-relaxed font-mono">
               Hi, I’m a high school student interested in computer science and
               law. I have experience in both fields, working with Stanford
               University and the University of Delaware, among other
               institutions, where I’ve done programming projects and conducted
               legal research. 4x BPA National Champion.
-            </p>
+            </div>
 
             <Link href="https://www.shriyanyamali.tech/">
-              <Button className="group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
+              <Button className="mt-8 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
                 <div className="font-mono inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
                   View Full Site →
                 </div>
@@ -276,7 +276,7 @@ export default function Portfolio() {
           {/* Projects */}
           <section>
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-mono">My Projects</h2>
+              <h2 className="text-2xl font-mono">Projects</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map(({ id, src, alt, href, viewText }) => (
@@ -325,7 +325,7 @@ export default function Portfolio() {
           {/* Stack */}
           <section className="bg-blue-600 rounded-xl p-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-mono">My Tech Stack</h2>
+              <h2 className="text-2xl font-mono">Tech Stack</h2>
             </div>
             <div className="flex flex-wrap gap-4">
               {stackItems.map(({ id, src, alt }) => (
@@ -353,7 +353,7 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-start">
             {" "}
             {/* ─── Left column: Contact + Awards ─── */}
-           <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
+            <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
               {/* Contact */}
               <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
                 <h2 className="text-2xl font-mono mb-4">Contact</h2>
@@ -370,9 +370,7 @@ export default function Portfolio() {
               </section>
 
               {/* Awards (static or expandable as you already have it) */}
-              <section
-                className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6"
-              >
+              <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-mono">Awards</h2>
                   <Button
@@ -432,7 +430,7 @@ export default function Portfolio() {
                   <h2 className="text-2xl font-mono">Resume</h2>
                   <Link
                     href="https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf"
-                    className="sm:w-[65%]"
+                    className="sm:w-1/2 sm:block hidden"
                   >
                     <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
                       <div className="font-mono text-lg translate-x-0 opacity-100 transition group-hover:-translate-x-[150%] group-hover:opacity-0">
@@ -467,6 +465,33 @@ export default function Portfolio() {
                     </span>
                   </Button>
                 </div>
+                <Link
+                  href="https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf"
+                  className="sm:hidden block"
+                >
+                  <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
+                    <div className="font-mono text-lg translate-x-0 opacity-100 transition group-hover:-translate-x-[150%] group-hover:opacity-0">
+                      View PDF
+                    </div>
+                    <div className="absolute translate-x-[150%] opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </Button>
+                </Link>
                 <div>
                   <span className="text-2xl font-mono">
                     {!resumeExpanded && (
