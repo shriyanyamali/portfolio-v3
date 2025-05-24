@@ -129,6 +129,9 @@ const projects: Project[] = [
 ];
 
 export default function Portfolio() {
+  const leftColumnRef = useRef<HTMLDivElement>(null);
+  const [resumeMinH, setResumeMinH] = useState<string>("0px");
+
   const [resumeExpanded, setResumeExpanded] = useState(false);
   const resumeRef = useRef<HTMLDivElement>(null);
   const resumeBottomRef = useRef<HTMLDivElement>(null);
@@ -138,6 +141,13 @@ export default function Portfolio() {
   const awardsRef = useRef<HTMLDivElement>(null);
   const awardsBottomRef = useRef<HTMLDivElement>(null);
   const [awardsMaxH, setAwardsMaxH] = useState("0px");
+
+  useEffect(() => {
+    if (leftColumnRef.current) {
+      const h = leftColumnRef.current.getBoundingClientRect().height;
+      setResumeMinH(`${h}px`);
+    }
+  }, []);
 
   useEffect(() => {
     if (!resumeRef.current) return;
@@ -323,7 +333,7 @@ export default function Portfolio() {
                   key={id}
                   className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden
                   transform transition duration-300 ease-in-out
-                hover:bg-neutral-800
+                hover:bg-slate-500
                   hover:ring-2
                   hover:ring-white
                   "
@@ -340,10 +350,10 @@ export default function Portfolio() {
             </div>
           </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-start">
             {" "}
             {/* ─── Left column: Contact + Awards ─── */}
-            <div className="space-y-4 md:col-span-1">
+           <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
               {/* Contact */}
               <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
                 <h2 className="text-2xl font-mono mb-4">Contact</h2>
@@ -360,7 +370,9 @@ export default function Portfolio() {
               </section>
 
               {/* Awards (static or expandable as you already have it) */}
-              <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
+              <section
+                className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6"
+              >
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-mono">Awards</h2>
                   <Button
@@ -392,7 +404,7 @@ export default function Portfolio() {
                               type: "spring",
                               stiffness: 200,
                             }}
-                            className="text-base font-mono bg-gray-800 rounded px-3 py-2"
+                            className="text-base font-mono bg-gray-800 rounded px-3 py-2 break-words"
                           >
                             {award.label}
                           </motion.li>
@@ -405,10 +417,11 @@ export default function Portfolio() {
               </section>
             </div>
             {/* Right column: Resume */}
-            <div className="md:col-span-1 h-full">
+            <div className="md:col-span-1 min-w-0">
               <section
+                style={{ minHeight: resumeMinH }}
                 className={`
-                  h-full
+                
                   relative overflow-hidden rounded-xl
                   bg-gradient-to-br from-gray-900 to-gray-800
                   p-6
@@ -438,7 +451,7 @@ export default function Portfolio() {
                             d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                             fill="currentColor"
                             fillRule="evenodd"
-                            clip-rule="evenodd"
+                            clipRule="evenodd"
                           ></path>
                         </svg>
                       </div>
