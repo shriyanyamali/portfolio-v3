@@ -129,6 +129,14 @@ const projects: Project[] = [
 ];
 
 export default function Portfolio() {
+  const [hovering, setHovering] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
+
   const [hoverStanford, setHoverStanford] = useState(false);
   const [hoverDelaware, setHoverDelaware] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -146,6 +154,13 @@ export default function Portfolio() {
   const awardsRef = useRef<HTMLDivElement>(null);
   const awardsBottomRef = useRef<HTMLDivElement>(null);
   const [awardsMaxH, setAwardsMaxH] = useState("0px");
+
+  useEffect(() => {
+    if (hovering && ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setPosition({ x: rect.left + rect.width / 2, y: rect.top - 10 });
+    }
+  }, [hovering]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -187,13 +202,11 @@ export default function Portfolio() {
 
         const absoluteBottom =
           el.getBoundingClientRect().bottom + window.scrollY;
-        // pick an offset equal to ~1/3 of the viewport height
         const extra = window.innerHeight / 3;
-        // scroll so that the bottom marker sits extra px from the top
         const targetScroll = absoluteBottom - extra;
 
         window.scrollTo({ top: targetScroll, behavior: "smooth" });
-      }, 450); // match or slightly exceed your 500ms expand
+      }, 450);
     }
   }, [resumeExpanded]);
 
@@ -262,9 +275,9 @@ export default function Portfolio() {
               >
                 law
               </motion.span>
-              . I have worked with{" "}
+              . I have collaborated with{" "}
               <motion.span
-                className="italic inline-block cursor-pointer text-white"
+                className="underline inline-block cursor-pointer text-white"
                 onMouseEnter={() => setHoverStanford(true)}
                 onMouseLeave={() => setHoverStanford(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -306,7 +319,7 @@ export default function Portfolio() {
               )}{" "}
               and the{" "}
               <motion.span
-                className="italic inline-block cursor-pointer text-white"
+                className="underline inline-block cursor-pointer text-white"
                 onMouseEnter={() => setHoverDelaware(true)}
                 onMouseLeave={() => setHoverDelaware(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -346,7 +359,7 @@ export default function Portfolio() {
                   />
                 </motion.div>
               )}
-              , among other institutions, where I’ve worked on programming
+              , alongside other institutions, where I’ve worked on programming
               projects like{" "}
               <motion.span
                 className="text-green-500 inline-block"
@@ -356,7 +369,7 @@ export default function Portfolio() {
               >
                 Verdictr
               </motion.span>{" "}
-              and
+              and{" "}
               <motion.span
                 className="text-emerald-200 inline-block"
                 initial={{ scale: 1 }}
@@ -364,11 +377,11 @@ export default function Portfolio() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 LexFlow
-              </motion.span>{" "}
-              and conducted legal research.{" "}
+              </motion.span>
+              , while concurrently conducting legal research. I am also a{" "}
               <motion.span
-                className="underline inline-block"
-                initial={{ scale: 1, color: "#fff" }}
+                className="inline-block"
+                initial={{ scale: 1, color: "#7393B3" }}
                 whileHover={{
                   scale: 1.2,
                   color: "#facc15",
@@ -379,7 +392,46 @@ export default function Portfolio() {
               >
                 4x
               </motion.span>{" "}
-              BPA National Champion.
+              BPA{" "}
+              <div className="relative inline-block group">
+                <span className="font-semibold text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  National Champion
+                </span>
+
+                {/* Confetti container */}
+                <div className="absolute top-1/2 left-1/2 pointer-events-none z-50">
+                  {[...Array(25)].map((_, i) => (
+                    <span key={i} className={`confetti confetti-${i}`} />
+                  ))}
+                </div>
+              </div>{" "}
+              and an awardee of the{" "}
+              <span
+                className="relative inline-block cursor-pointer font-semibold text-white hover:text-yellow-400 italic transition-colors"
+                onMouseEnter={() => setHovering(true)}
+                onMouseLeave={() => setHovering(false)}
+                onMouseMove={handleMouseMove}
+              >
+                Gold Presidential Volunteer Service Award
+                  <span className="text-white">.</span>
+                <AnimatePresence>
+                  {hovering && (
+                    <motion.div
+                      className="fixed z-50 bg-neutral-900 text-white text-xs px-4 py-2 rounded-md shadow-lg border border-yellow-400 flex items-center gap-2 pointer-events-none"
+                      style={{
+                        top: mousePos.y + 25,
+                        left: mousePos.x - 100,
+                      }}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      250+ hours volunteered
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </span>
             </div>
 
             <Link href="https://www.shriyanyamali.tech/">

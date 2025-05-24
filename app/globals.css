@@ -6,6 +6,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes confetti-burst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.7);
+    opacity: 0;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -84,6 +95,32 @@ body {
   }
 }
 
+.confetti-0  { --x: -80px;  --y: -60px;  background: #fcd34d; } /* gold */
+.confetti-1  { --x: 70px;   --y: -70px;  background: #60a5fa; } /* blue */
+.confetti-2  { --x: -50px;  --y: 80px;   background: #f87171; } /* red */
+.confetti-3  { --x: 90px;   --y: 30px;   background: #34d399; } /* green */
+.confetti-4  { --x: -60px;  --y: -90px;  background: #a78bfa; } /* purple */
+.confetti-5  { --x: 85px;   --y: -50px;  background: #facc15; } /* bright gold */
+.confetti-6  { --x: -70px;  --y: 60px;   background: #fb923c; } /* orange */
+.confetti-7  { --x: 65px;   --y: 85px;   background: #22d3ee; } /* cyan */
+.confetti-8  { --x: -90px;  --y: 40px;   background: #ec4899; } /* pink */
+.confetti-9  { --x: 40px;   --y: 90px;   background: #10b981; } /* teal */
+.confetti-10 { --x: -100px; --y: 10px;   background: #f472b6; }
+.confetti-11 { --x: 100px;  --y: -10px;  background: #818cf8; }
+.confetti-12 { --x: -85px;  --y: -70px;  background: #f87171; }
+.confetti-13 { --x: 75px;   --y: -80px;  background: #fcd34d; }
+.confetti-14 { --x: -95px;  --y: 55px;   background: #34d399; }
+.confetti-15 { --x: 95px;   --y: 65px;   background: #e879f9; }
+.confetti-16 { --x: -40px;  --y: -95px;  background: #c084fc; }
+.confetti-17 { --x: 60px;   --y: 100px;  background: #38bdf8; }
+.confetti-18 { --x: -65px;  --y: 100px;  background: #fb7185; }
+.confetti-19 { --x: 100px;  --y: -70px;  background: #f59e0b; }
+.confetti-20 { --x: 30px;   --y: -100px; background: #67e8f9; }
+.confetti-21 { --x: -20px;  --y: 100px;  background: #f472b6; }
+.confetti-22 { --x: 50px;   --y: 100px;  background: #cbd5e1; }
+.confetti-23 { --x: -100px; --y: -40px;  background: #a3e635; }
+.confetti-24 { --x: 0px;    --y: -110px; background: #fde68a; }
+
 @layer base {
   * {
     @apply border-border;
@@ -91,4 +128,18 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.confetti {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  animation: none;
+}
+
+.group:hover .confetti {
+  animation: confetti-burst 700ms ease-out forwards;
 }
