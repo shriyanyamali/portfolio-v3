@@ -464,7 +464,7 @@ export default function Portfolio() {
               </div>{" "}
               and an awardee of the{" "}
               <span
-                className="relative inline cursor-pointer font-semibold text-white hover:text-yellow-400 italic transition-colors break-words"
+                className="relative inline font-semibold text-white hover:text-yellow-400 italic transition-colors break-words"
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}
                 onMouseMove={handleMouseMove}
