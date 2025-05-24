@@ -76,14 +76,14 @@ const timeline: TimelineItem[] = [
 ];
 
 const stackItems: StackItem[] = [
-  { id: 1, src: "/nextjs-logo.svg", alt: "Next.js logo" },
-  { id: 2, src: "/typescript-logo.svg", alt: "TypeScript logo" },
-  { id: 3, src: "/react-logo.svg", alt: "React logo" },
-  { id: 4, src: "/tailwind-logo.svg", alt: "Tailwind CSS logo" },
-  { id: 5, src: "/git-logo.svg", alt: "Git logo" },
-  { id: 6, src: "/python-logo.svg", alt: "Python logo" },
-  { id: 7, src: "/html5-logo.svg", alt: "HTML5 logo" },
-  { id: 8, src: "/css3-logo.svg", alt: "CSS3 logo" },
+  { id: 1, src: "/logos/nextjs-logo.svg", alt: "Next.js logo" },
+  { id: 2, src: "/logos/typescript-logo.svg", alt: "TypeScript logo" },
+  { id: 3, src: "/logos/react-logo.svg", alt: "React logo" },
+  { id: 4, src: "/logos/tailwind-logo.svg", alt: "Tailwind CSS logo" },
+  { id: 5, src: "/logos/git-logo.svg", alt: "Git logo" },
+  { id: 6, src: "/logos/python-logo.svg", alt: "Python logo" },
+  { id: 7, src: "/logos/html5-logo.svg", alt: "HTML5 logo" },
+  { id: 8, src: "/logos/css3-logo.svg", alt: "CSS3 logo" },
 ];
 
 const awards: Award[] = [
@@ -117,14 +117,14 @@ const awards: Award[] = [
 const projects: Project[] = [
   {
     id: 1,
-    src: "/verdictr.png",
+    src: "/projects/verdictr.png",
     alt: "Verdictr screenshot",
     href: "https://verdictr.github.io/",
     viewText: "View Project | Verdictr | w/ Stanford",
   },
   {
     id: 2,
-    src: "/lexflow.png",
+    src: "/projects/lexflow.png",
     alt: "LexFlow screenshot",
     href: "https://github.com/ShriyanYamali/LexFlow",
     viewText: "View Project | LexFlow | w/ UPenn",
@@ -696,6 +696,7 @@ export default function Portfolio() {
                   <h2 className="text-2xl font-mono">Resume</h2>
                   <Link
                     href="https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf"
+                    target="_blank"
                     className="sm:w-1/2 sm:block hidden"
                   >
                     <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
