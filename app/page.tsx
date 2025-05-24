@@ -210,7 +210,8 @@ export default function Portfolio() {
               className="rounded-full"
             />
             <div>
-              <h1 className="text-2xl font-mono">SHRIYAN Y.</h1>
+              <h1 className="text-2xl font-mono">SHRIYAN YAMALI</h1>
+              <p className="text-base text-neutral-200 font-mono">📍Newark, Delaware</p>
             </div>
           </div>
 
