@@ -33,6 +33,9 @@ type Award = {
   label: string;
 };
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let scrambleInterval: number;
+
 const timeline: TimelineItem[] = [
   {
     id: 1,
@@ -133,6 +136,8 @@ export default function Portfolio() {
   const ref = useRef<HTMLSpanElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
+  const [active, setActive] = useState(true);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
     setMousePos({ x: e.clientX, y: e.clientY });
   };
@@ -154,6 +159,50 @@ export default function Portfolio() {
   const awardsRef = useRef<HTMLDivElement>(null);
   const awardsBottomRef = useRef<HTMLDivElement>(null);
   const [awardsMaxH, setAwardsMaxH] = useState("0px");
+
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+
+    const runScramble = (target: HTMLHeadingElement) => {
+      let iteration = 0;
+      const original = target.dataset.value!;
+
+      clearInterval(scrambleInterval);
+      setActive(true);
+
+      scrambleInterval = window.setInterval(() => {
+        target.innerText = original
+          .split("")
+          .map((ch, i) =>
+            i < iteration
+              ? original[i]
+              : letters[Math.floor(Math.random() * letters.length)]
+          )
+          .join("");
+
+        if (iteration >= original.length) {
+          clearInterval(scrambleInterval);
+          setActive(false);
+        }
+        iteration += 1 / 3;
+      }, 30);
+    };
+
+    const onMouseEnter = (e: MouseEvent) => {
+      runScramble(e.currentTarget as HTMLHeadingElement);
+    };
+    el.addEventListener("mouseenter", onMouseEnter);
+
+    runScramble(el);
+
+    return () => {
+      el.removeEventListener("mouseenter", onMouseEnter);
+      clearInterval(scrambleInterval);
+    };
+  }, []);
 
   useEffect(() => {
     if (hovering && ref.current) {
@@ -247,7 +296,20 @@ export default function Portfolio() {
               className="rounded-full"
             />
             <div>
-              <h1 className="text-2xl font-mono">SHRIYAN YAMALI</h1>
+              <h1
+                  ref={headingRef}
+                  data-value="SHRIYAN YAMALI"
+                  className={`
+                  text-2xl font-mono p-2 rounded transition-colors duration-500
+                  ${
+                    active
+                      ? "bg-white text-black"
+                      : "bg-black text-white hover:bg-white hover:text-black"
+                  }
+                `}
+              >
+                SHRIYAN YAMALI
+              </h1>
               <p className="text-base text-neutral-200 font-mono">
                 📍Newark, Delaware
               </p>
@@ -413,7 +475,7 @@ export default function Portfolio() {
                 onMouseMove={handleMouseMove}
               >
                 Gold Presidential Volunteer Service Award
-                  <span className="text-white">.</span>
+                <span className="text-white">.</span>
                 <AnimatePresence>
                   {hovering && (
                     <motion.div
