@@ -78,12 +78,18 @@ const timeline: TimelineItem[] = [
 const stackItems: StackItem[] = [
   { id: 1, src: "/logos/nextjs-logo.svg", alt: "Next.js logo" },
   { id: 2, src: "/logos/typescript-logo.svg", alt: "TypeScript logo" },
+  { id: 10, src: "/logos/js-logo.svg", alt: "JS logo" },
   { id: 3, src: "/logos/react-logo.svg", alt: "React logo" },
-  { id: 4, src: "/logos/tailwind-logo.svg", alt: "Tailwind CSS logo" },
-  { id: 5, src: "/logos/git-logo.svg", alt: "Git logo" },
-  { id: 6, src: "/logos/python-logo.svg", alt: "Python logo" },
-  { id: 7, src: "/logos/html5-logo.svg", alt: "HTML5 logo" },
-  { id: 8, src: "/logos/css3-logo.svg", alt: "CSS3 logo" },
+  { id: 4, src: "/logos/framer-logo.svg", alt: "Framer   logo" },
+  { id: 5, src: "/logos/tailwind-logo.svg", alt: "Tailwind CSS logo" },
+  { id: 6, src: "/logos/git-logo.svg", alt: "Git logo" },
+  { id: 8, src: "/logos/html5-logo.svg", alt: "HTML5 logo" },
+  { id: 9, src: "/logos/css3-logo.svg", alt: "CSS3 logo" },
+  { id: 7, src: "/logos/python-logo.svg", alt: "Python logo" },
+  { id: 11, src: "/logos/numpy-logo.svg", alt: "Numpy logo" },
+  { id: 12, src: "/logos/pandas-logo.svg", alt: "Pandas logo" },
+  { id: 13, src: "/logos/tensorflow-logo.svg", alt: "TensorFlow logo" },
+  { id: 14, src: "/logos/pytorch-logo.svg", alt: "PyTorch logo" },
 ];
 
 const awards: Award[] = [
@@ -498,7 +504,10 @@ export default function Portfolio() {
                 </div>
                 <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition duration-500 group-hover:translate-y-0">
                   <span className="absolute h-full w-full translate-y-full skew-y-6 scale-y-0 bg-neutral-950 transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
-                  <span className="z-10 font-mono font-bold"> View Full Site →</span>
+                  <span className="z-10 font-mono font-bold">
+                    {" "}
+                    View Full Site →
+                  </span>
                 </div>
               </Button>
             </Link>
@@ -600,9 +609,9 @@ export default function Portfolio() {
               {stackItems.map(({ id, src, alt }) => (
                 <div
                   key={id}
-                  className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden
+                  className="w-12 h-12 bg-neutral-200 rounded-xl flex items-center justify-center overflow-hidden
                   transform transition duration-300 ease-in-out
-                hover:bg-slate-500
+                hover:bg-neutral-800
                   hover:ring-2
                   hover:ring-white
                   "
@@ -610,8 +619,8 @@ export default function Portfolio() {
                   <Image
                     src={src}
                     alt={alt}
-                    width={24}
-                    height={24}
+                    width={30}
+                    height={30}
                     className="object-contain"
                   />
                 </div>
