@@ -574,8 +574,7 @@ export default function Portfolio() {
                     src={src}
                     alt={alt}
                     fill
-                    className="
-                  sm:hover:scale-110 duration-300 
+                    className=" 
                   object-contain sm:object-cover lg:object-contain xl:object-cover
                   "
                   />
