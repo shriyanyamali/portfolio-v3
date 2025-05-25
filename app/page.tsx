@@ -26,6 +26,7 @@ type Project = {
   alt: string;
   href: string;
   viewText: string;
+  bgcolor: string;
 };
 
 type Award = {
@@ -118,10 +119,9 @@ const awards: Award[] = [
     label:
       "2nd Place – Statewide in Debating Technological Issues (TSA SLC 2025)",
   },
-    {
+  {
     id: 7,
-    label:
-      "Presidential Volunteer Service Award (2025)",
+    label: "Presidential Volunteer Service Award (2025)",
   },
 ];
 
@@ -132,6 +132,7 @@ const projects: Project[] = [
     alt: "Verdictr screenshot",
     href: "https://verdictr.github.io/",
     viewText: "View Project | Verdictr | w/ Stanford",
+    bgcolor: "#d4eeff",
   },
   {
     id: 2,
@@ -139,6 +140,7 @@ const projects: Project[] = [
     alt: "LexFlow screenshot",
     href: "https://github.com/ShriyanYamali/LexFlow",
     viewText: "View Project | LexFlow | w/ UPenn",
+    bgcolor: "#e0e8fa",
   },
 ];
 
@@ -562,12 +564,21 @@ export default function Portfolio() {
               <h2 className="text-2xl font-mono">Projects</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map(({ id, src, alt, href, viewText }) => (
+              {projects.map(({ id, src, alt, href, viewText, bgcolor }) => (
                 <div
                   key={id}
-                  className="relative h-[20rem] bg-gray-900 rounded-lg overflow-hidden"
+                  className="relative h-[20rem] rounded-lg overflow-hidden"
+                  style={{ backgroundColor: bgcolor }}
                 >
-                  <Image src={src} alt={alt} fill className="object-cover" />
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    className="
+                  sm:hover:scale-110 duration-300 
+                  object-contain sm:object-cover lg:object-contain xl:object-cover
+                  "
+                  />
 
                   <Button
                     asChild
