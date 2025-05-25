@@ -648,8 +648,8 @@ export default function Portfolio() {
             {/* ─── Left column: Contact + Awards ─── */}
             <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
               {/* Contact */}
-              <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                <div className="flex items-center justify-between mb-4">
+              <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-5">
+                <div className="flex items-center justify-between">
                   <h2 className="text-2xl font-mono">Contact</h2>
                   <Button asChild variant="ghost" size="icon">
                     <Link href="mailto:yamalishriyan@gmail.com">
@@ -657,6 +657,9 @@ export default function Portfolio() {
                     </Link>
                   </Button>
                 </div>
+                <p className="text-base font-mono text-gray-400">
+                  yamalishriyan[at]gmail[dot]com
+                </p>
               </section>
 
               {/* Awards (static or expandable as you already have it) */}
