@@ -347,7 +347,7 @@ export default function Portfolio() {
               </motion.span>
               . I have collaborated with{" "}
               <motion.span
-                className="underline inline-block cursor-pointer text-white"
+                className="underline inline-block text-white"
                 onMouseEnter={() => setHoverStanford(true)}
                 onMouseLeave={() => setHoverStanford(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -389,7 +389,7 @@ export default function Portfolio() {
               )}{" "}
               and the{" "}
               <motion.span
-                className="underline inline-block cursor-pointer text-white"
+                className="underline inline-block text-white"
                 onMouseEnter={() => setHoverDelaware(true)}
                 onMouseLeave={() => setHoverDelaware(false)}
                 transition={{ type: "spring", stiffness: 250 }}
