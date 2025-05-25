@@ -2,7 +2,7 @@
 
 ## Built by Shriyan Yamali
 
-###### Check out this website at <a href="https://dev.shriyanyamali.tech/">https://dev.shriyanyamali.tech/</a>
+###### Check out this website at <a href="https://shriyanyamali.tech/">https://shriyanyamali.tech/</a>
 
 ###### Contact me at <a  href="mailto:yamalishriyan@gmail.com">yamalishriyan@gmail.com</a>
 
