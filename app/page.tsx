@@ -502,7 +502,7 @@ export default function Portfolio() {
               </span>
             </div>
 
-            <Link href="https://www.shriyanyamali.tech/">
+            <Link href="https://dev.shriyanyamali.tech/">
               <Button className="mt-8 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
                 <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
                   View Full Site →
