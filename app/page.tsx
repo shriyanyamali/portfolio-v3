@@ -131,7 +131,7 @@ const projects: Project[] = [
     src: "/projects/verdictr.png",
     alt: "Verdictr screenshot",
     href: "https://verdictr.github.io/",
-    viewText: "View Project | Verdictr | w/ Stanford",
+    viewText: "View Verdictr | w/ Stanford",
     bgcolor: "#d4eeff",
   },
   {
@@ -139,7 +139,7 @@ const projects: Project[] = [
     src: "/projects/lexflow.png",
     alt: "LexFlow screenshot",
     href: "https://github.com/ShriyanYamali/LexFlow",
-    viewText: "View Project | LexFlow | w/ UPenn",
+    viewText: "View LexFlow | w/ UPenn",
     bgcolor: "#e0e8fa",
   },
 ];
@@ -296,7 +296,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white p-6 ">
-      <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-8">
+      <div className="grid grid-cols-1 
+                 lg:grid-cols-[18rem_1fr]
+                 xl:grid-cols-[25rem_1fr]
+                 gap-8">
         {/* Sidebar */}
         <aside className="space-y-8">
           {/* Profile */}
@@ -329,7 +332,7 @@ export default function Portfolio() {
             <div className="pl-4 border-l-4 border-yellow-400 text-white text-md font-bold leading-relaxed font-mono">
               Hi, I’m a high school student interested in{" "}
               <motion.span
-                className="text-cyan-400 inline-block"
+                className="text-cyan-400 inline-block break-words"
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.15, rotate: -3 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -337,17 +340,20 @@ export default function Portfolio() {
                 computer science
               </motion.span>{" "}
               and{" "}
+              <span className="inline-block">
+                <motion.span
+                  className="text-pink-500 break-words"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.15, rotate: 3 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  law
+                </motion.span>
+                .
+              </span>{" "}
+              I have collaborated with{" "}
               <motion.span
-                className="text-pink-500 inline-block"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.15, rotate: 3 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                law
-              </motion.span>
-              . I have collaborated with{" "}
-              <motion.span
-                className="inline-block text-white"
+                className="inline-block text-white break-words"
                 onMouseEnter={() => setHoverStanford(true)}
                 onMouseLeave={() => setHoverStanford(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -389,7 +395,7 @@ export default function Portfolio() {
               )}{" "}
               and the{" "}
               <motion.span
-                className="inline-block text-white"
+                className="inline-block text-white break-words"
                 onMouseEnter={() => setHoverDelaware(true)}
                 onMouseLeave={() => setHoverDelaware(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -432,7 +438,7 @@ export default function Portfolio() {
               , along with other universities, where I’ve worked on programming
               projects like{" "}
               <motion.span
-                className="text-green-500 inline-block"
+                className="text-green-500 inline-block break-words"
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.4, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -441,7 +447,7 @@ export default function Portfolio() {
               </motion.span>{" "}
               and{" "}
               <motion.span
-                className="text-emerald-200 inline-block"
+                className="text-emerald-200 inline-block break-words"
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.2, rotate: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -450,7 +456,7 @@ export default function Portfolio() {
               </motion.span>
               , while concurrently conducting legal research. I am also a{" "}
               <motion.span
-                className="inline-block"
+                className="inline-block break-words"
                 initial={{ scale: 1, color: "#7393B3" }}
                 whileHover={{
                   scale: 1.2,
@@ -557,7 +563,7 @@ export default function Portfolio() {
         </aside>
 
         {/* Main Content */}
-        <main className="space-y-6 pt-4">
+        <main className="space-y-6 pt-[1.25rem]">
           {/* Projects */}
           <section>
             <div className="flex justify-between items-center mb-4">
@@ -599,13 +605,10 @@ export default function Portfolio() {
                       <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
                         +
                       </span>
-                      <span className="text-2xl font-mono block group-hover:block sm:hidden">
+                      <span className="text-2xl font-mono block group-hover:inline sm:hidden">
                         →
                       </span>
-                      <span className="pl-4 text-2xl font-mono sm:group-hover:hidden group-hover:block hidden">
-                        View Project
-                      </span>
-                      <span className="text-xl font-mono hidden sm:group-hover:inline pl-4">
+                      <span className="text-base sm:text-2xl md:text-lg xl:text-xl 2xl:text-2xl font-mono hidden group-hover:inline pl-4">
                         {viewText}
                       </span>
                     </Link>
