@@ -557,7 +557,7 @@ export default function Portfolio() {
         </aside>
 
         {/* Main Content */}
-        <main className="space-y-8 pt-4">
+        <main className="space-y-6 pt-4">
           {/* Projects */}
           <section>
             <div className="flex justify-between items-center mb-4">
