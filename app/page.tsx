@@ -347,7 +347,7 @@ export default function Portfolio() {
               </motion.span>
               . I have collaborated with{" "}
               <motion.span
-                className="underline inline-block text-white"
+                className="inline-block text-white"
                 onMouseEnter={() => setHoverStanford(true)}
                 onMouseLeave={() => setHoverStanford(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -370,8 +370,8 @@ export default function Portfolio() {
                     transition: {
                       scale: { type: "spring", stiffness: 500, damping: 10 },
                       rotate: {
-                        duration: 0.2,
-                        repeat: 15,
+                        duration: 0.25,
+                        repeat: 0,
                         ease: "easeInOut",
                       },
                     },
@@ -389,7 +389,7 @@ export default function Portfolio() {
               )}{" "}
               and the{" "}
               <motion.span
-                className="underline inline-block text-white"
+                className="inline-block text-white"
                 onMouseEnter={() => setHoverDelaware(true)}
                 onMouseLeave={() => setHoverDelaware(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -413,7 +413,7 @@ export default function Portfolio() {
                       scale: { type: "spring", stiffness: 500, damping: 10 },
                       rotate: {
                         duration: 0.25,
-                        repeat: 15,
+                        repeat: 0,
                         ease: "easeInOut",
                       },
                     },
@@ -429,7 +429,7 @@ export default function Portfolio() {
                   />
                 </motion.div>
               )}
-              , alongside other institutions, where I’ve worked on programming
+              , along with other universities, where I’ve worked on programming
               projects like{" "}
               <motion.span
                 className="text-green-500 inline-block"
