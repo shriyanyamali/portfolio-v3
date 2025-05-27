@@ -189,11 +189,16 @@ export default function Portfolio() {
       scrambleInterval = window.setInterval(() => {
         target.innerText = original
           .split("")
-          .map((ch, i) =>
-            i < iteration
-              ? original[i]
-              : letters[Math.floor(Math.random() * letters.length)]
-          )
+          .map((ch, i) => {
+            // ← if it's literally a space, always leave it as-is
+            if (ch === " ") return " ";
+
+            // once we've “decoded” past this letter, show the real one
+            if (i < iteration) return original[i];
+
+            // otherwise, show a random hacker‐letter
+            return letters[Math.floor(Math.random() * letters.length)];
+          })
           .join("");
 
         if (iteration >= original.length) {
@@ -203,7 +208,7 @@ export default function Portfolio() {
         iteration += 1 / 5;
       }, 30);
     };
-
+    
     const onMouseEnter = (e: MouseEvent) => {
       runScramble(e.currentTarget as HTMLHeadingElement);
     };
