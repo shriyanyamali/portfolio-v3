@@ -176,51 +176,40 @@ export default function Portfolio() {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    const el = headingRef.current;
-    if (!el) return;
+  const el = headingRef.current;
+  if (!el) return;
 
-    const runScramble = (target: HTMLHeadingElement) => {
-      let iteration = 0;
-      const original = target.dataset.value!;
+  const runScramble = (target: HTMLHeadingElement) => {
+    let iteration = 0;
+    const original = target.dataset.value!;
 
-      clearInterval(scrambleInterval);
-      setActive(true);
+    clearInterval(scrambleInterval);
+    setActive(true);
 
-      scrambleInterval = window.setInterval(() => {
-        target.innerText = original
-          .split("")
-          .map((ch, i) => {
-            // ← if it's literally a space, always leave it as-is
-            if (ch === " ") return " ";
+    scrambleInterval = window.setInterval(() => {
+      target.innerText = original
+        .split("")
+        .map((ch, i) => {
+          if (ch === " ") return " ";
+          if (i < iteration) return original[i];
+          return letters[Math.floor(Math.random() * letters.length)];
+        })
+        .join("");
 
-            // once we've “decoded” past this letter, show the real one
-            if (i < iteration) return original[i];
+      if (iteration >= original.length) {
+        clearInterval(scrambleInterval);
+        setActive(false);
+      }
+      iteration += 1 / 5;
+    }, 30);
+  };
 
-            // otherwise, show a random hacker‐letter
-            return letters[Math.floor(Math.random() * letters.length)];
-          })
-          .join("");
+  runScramble(el);
 
-        if (iteration >= original.length) {
-          clearInterval(scrambleInterval);
-          setActive(false);
-        }
-        iteration += 1 / 5;
-      }, 30);
-    };
-    
-    const onMouseEnter = (e: MouseEvent) => {
-      runScramble(e.currentTarget as HTMLHeadingElement);
-    };
-    el.addEventListener("mouseenter", onMouseEnter);
-
-    runScramble(el);
-
-    return () => {
-      el.removeEventListener("mouseenter", onMouseEnter);
-      clearInterval(scrambleInterval);
-    };
-  }, []);
+  return () => {
+    clearInterval(scrambleInterval);
+  };
+}, []);
 
   useEffect(() => {
     if (hovering && ref.current) {
