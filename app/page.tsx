@@ -296,10 +296,12 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white p-6 ">
-      <div className="grid grid-cols-1 
+      <div
+        className="grid grid-cols-1 
                  lg:grid-cols-[18rem_1fr]
                  xl:grid-cols-[25rem_1fr]
-                 gap-8">
+                 gap-8"
+      >
         {/* Sidebar */}
         <aside className="space-y-8">
           {/* Profile */}
@@ -340,9 +342,9 @@ export default function Portfolio() {
                 computer science
               </motion.span>{" "}
               and{" "}
-              <span className="inline-block">
+              <span className="whitespace-nowrap">
                 <motion.span
-                  className="text-pink-500 break-words"
+                  className="inline-block text-pink-500"
                   initial={{ scale: 1 }}
                   whileHover={{ scale: 1.15, rotate: 3 }}
                   transition={{ type: "spring", stiffness: 300 }}
