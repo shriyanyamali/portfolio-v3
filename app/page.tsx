@@ -123,6 +123,18 @@ const awards: Award[] = [
     id: 7,
     label: "Presidential Volunteer Service Award (2025)",
   },
+  {
+    id: 8,
+    label: "3rd Place - Delaware High School Mock Trial Competition (2025)",
+  },
+  {
+    id: 9,
+    label: "Top 20 - National High School Mock Trial Competition (2024)",
+  },
+  {
+    id: 10,
+    label: "Honorable Mention - Personal Essay & Memoir (2025)",
+  },
 ];
 
 const projects: Project[] = [
@@ -176,40 +188,40 @@ export default function Portfolio() {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-  const el = headingRef.current;
-  if (!el) return;
+    const el = headingRef.current;
+    if (!el) return;
 
-  const runScramble = (target: HTMLHeadingElement) => {
-    let iteration = 0;
-    const original = target.dataset.value!;
+    const runScramble = (target: HTMLHeadingElement) => {
+      let iteration = 0;
+      const original = target.dataset.value!;
 
-    clearInterval(scrambleInterval);
-    setActive(true);
+      clearInterval(scrambleInterval);
+      setActive(true);
 
-    scrambleInterval = window.setInterval(() => {
-      target.innerText = original
-        .split("")
-        .map((ch, i) => {
-          if (ch === " ") return " ";
-          if (i < iteration) return original[i];
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
-        .join("");
+      scrambleInterval = window.setInterval(() => {
+        target.innerText = original
+          .split("")
+          .map((ch, i) => {
+            if (ch === " ") return " ";
+            if (i < iteration) return original[i];
+            return letters[Math.floor(Math.random() * letters.length)];
+          })
+          .join("");
 
-      if (iteration >= original.length) {
-        clearInterval(scrambleInterval);
-        setActive(false);
-      }
-      iteration += 1 / 5;
-    }, 30);
-  };
+        if (iteration >= original.length) {
+          clearInterval(scrambleInterval);
+          setActive(false);
+        }
+        iteration += 1 / 5;
+      }, 30);
+    };
 
-  runScramble(el);
+    runScramble(el);
 
-  return () => {
-    clearInterval(scrambleInterval);
-  };
-}, []);
+    return () => {
+      clearInterval(scrambleInterval);
+    };
+  }, []);
 
   useEffect(() => {
     if (hovering && ref.current) {
