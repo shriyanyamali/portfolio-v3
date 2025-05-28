@@ -117,7 +117,7 @@ const awards: Award[] = [
   {
     id: 6,
     label:
-      "2nd Place – Statewide in Debating Technological Issues (TSA SLC 2025)",
+      "2nd Place – Debating Technological Issues (TSA SLC 2025)",
   },
   {
     id: 7,
