@@ -46,33 +46,33 @@ const timeline: TimelineItem[] = [
   },
   {
     id: 2,
-    date: "Sept 2024 — Jan 2025 | Newark, Delaware",
-    role: "Frontend Web Developer",
-    org: "University of Delaware",
-  },
-  {
-    id: 3,
-    date: "July 2024 — Jan 2025 | Hanover, New Hampshire",
-    role: "Assistant Editor",
-    org: "Dartmouth College",
-  },
-  {
-    id: 4,
-    date: "July 2024 — Aug 2024 | Philadelphia, Pennsylvania",
-    role: "Summer Intern",
-    org: "University of Pennsylvania Carey Law School",
-  },
-  {
-    id: 5,
     date: "June 2024 — Present | Stanford, California",
     role: "Programming Intern",
     org: "Stanford Law School",
   },
   {
-    id: 6,
+    id: 3,
     date: "June 2024 — Feb 2025 | Wilmington, Delaware",
     role: "Research Assistant",
     org: "Wilmington University School of Law",
+  },
+  {
+    id: 4,
+    date: "Sept 2024 — Jan 2025 | Newark, Delaware",
+    role: "Frontend Web Developer",
+    org: "University of Delaware",
+  },
+  {
+    id: 5,
+    date: "July 2024 — Jan 2025 | Hanover, New Hampshire",
+    role: "Assistant Editor",
+    org: "Dartmouth College",
+  },
+  {
+    id: 6,
+    date: "July 2024 — Aug 2024 | Philadelphia, Pennsylvania",
+    role: "Summer Intern",
+    org: "University of Pennsylvania Carey Law School",
   },
 ];
 
@@ -116,8 +116,7 @@ const awards: Award[] = [
   },
   {
     id: 6,
-    label:
-      "2nd Place – Debating Technological Issues (TSA SLC 2025)",
+    label: "2nd Place – Debating Technological Issues (TSA SLC 2025)",
   },
   {
     id: 7,
