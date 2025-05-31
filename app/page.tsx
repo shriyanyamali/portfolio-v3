@@ -312,8 +312,8 @@ export default function Portfolio() {
           {/* Profile */}
           <div className="flex items-center gap-4 pt-4">
             <Image
-              src="/pfp-cropped.jpg"
-              alt="Profile"
+              src="/pfp.png"
+              alt="Profile Photo"
               width={60}
               height={60}
               className="rounded-full"
@@ -732,7 +732,7 @@ export default function Portfolio() {
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-mono">Resume</h2>
                   <Link
-                    href="https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf"
+                    href="/Shriyan%20Yamali%20Resume.pdf"
                     target="_blank"
                     className="sm:w-1/2 sm:block hidden"
                   >
