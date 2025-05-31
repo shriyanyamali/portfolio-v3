@@ -626,7 +626,7 @@ export default function Portfolio() {
           </section>
 
           {/* Stack */}
-          <section className="bg-gradient-to-br from-sky-600 to-blue-700  rounded-xl p-6">
+          <section className="bg-gradient-to-br from-blue-600 to-blue-700  rounded-xl p-6">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-mono">Tech Stack</h2>
             </div>
