@@ -312,7 +312,7 @@ export default function Portfolio() {
           {/* Profile */}
           <div className="flex items-center gap-4 pt-4">
             <Image
-              src="/pfp.png"
+              src="/profile-picture.png"
               alt="Profile Photo"
               width={60}
               height={60}
