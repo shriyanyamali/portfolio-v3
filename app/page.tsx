@@ -316,6 +316,7 @@ export default function Portfolio() {
               alt="Profile Photo"
               width={60}
               height={60}
+              unoptimized
               className="rounded-full"
             />
             <div>
