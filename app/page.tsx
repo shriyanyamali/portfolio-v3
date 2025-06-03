@@ -804,8 +804,7 @@ export default function Portfolio() {
                           <span className="font-extrabold">
                             Extracurricular Activities & Leadership:
                           </span>{" "}
-                          CSHS President, Student Council President, BPA Chapter
-                          Officer, TSA, Mock Trial.
+                          BPA President, CSHS President, Student Council President, TSA, Mock Trial.
                         </p>
                       </div>
                     )}
