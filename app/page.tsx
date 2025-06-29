@@ -543,7 +543,7 @@ export default function Portfolio() {
                 },
                 {
                   icon: <Github className="w-5 h-5" />,
-                  url: "https://github.com/ShriyanYamali",
+                  url: "https://github.com/shriyanyamali",
                 },
               ].map(({ icon, url }, i) => (
                 <Button key={i} asChild variant="ghost" size="icon">
