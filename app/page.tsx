@@ -77,20 +77,17 @@ const timeline: TimelineItem[] = [
 ];
 
 const stackItems: StackItem[] = [
-  { id: 1, src: "/logos/nextjs-logo.svg", alt: "Next.js logo" },
-  { id: 2, src: "/logos/typescript-logo.svg", alt: "TypeScript logo" },
-  { id: 10, src: "/logos/js-logo.svg", alt: "JS logo" },
-  { id: 3, src: "/logos/react-logo.svg", alt: "React logo" },
-  { id: 4, src: "/logos/framer-logo.svg", alt: "Framer   logo" },
-  { id: 5, src: "/logos/tailwind-logo.svg", alt: "Tailwind CSS logo" },
-  { id: 6, src: "/logos/git-logo.svg", alt: "Git logo" },
-  { id: 8, src: "/logos/html5-logo.svg", alt: "HTML5 logo" },
-  { id: 9, src: "/logos/css3-logo.svg", alt: "CSS3 logo" },
-  { id: 7, src: "/logos/python-logo.svg", alt: "Python logo" },
-  { id: 11, src: "/logos/numpy-logo.svg", alt: "Numpy logo" },
-  { id: 12, src: "/logos/pandas-logo.svg", alt: "Pandas logo" },
-  { id: 13, src: "/logos/tensorflow-logo.svg", alt: "TensorFlow logo" },
-  { id: 14, src: "/logos/pytorch-logo.svg", alt: "PyTorch logo" },
+  { id: 1, src: "/logos/ocaml-logo.svg", alt: "OCaml logo" },
+  { id: 2, src: "/logos/java-logo.svg", alt: "Java logo" },
+  { id: 3, src: "/logos/html5-logo.svg", alt: "HTML5 logo" },
+  { id: 4, src: "/logos/css3-logo.svg", alt: "CSS3 logo" },
+  { id: 5, src: "/logos/js-logo.svg", alt: "JS logo" },
+  { id: 6, src: "/logos/typescript-logo.svg", alt: "TypeScript logo" },
+  { id: 7, src: "/logos/nextjs-logo.svg", alt: "Next.js logo" },
+  { id: 8, src: "/logos/react-logo.svg", alt: "React logo" },
+  { id: 9, src: "/logos/framer-logo.svg", alt: "Framer   logo" },
+  { id: 10, src: "/logos/tailwind-logo.svg", alt: "Tailwind CSS logo" },
+  { id: 11, src: "/logos/git-logo.svg", alt: "Git logo" },
 ];
 
 const awards: Award[] = [
@@ -617,7 +614,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* Stack */}
+          {/* Tech Stack */}
           <section className="bg-gradient-to-br from-blue-600 to-blue-700  rounded-xl p-6">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-mono">Tech Stack</h2>
@@ -647,7 +644,6 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-start">
             {" "}
-            {/* ─── Left column: Contact + Awards ─── */}
             <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
               {/* Contact */}
               <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-5">
@@ -664,7 +660,7 @@ export default function Portfolio() {
                 </p>
               </section>
 
-              {/* Awards (static or expandable as you already have it) */}
+              {/* Awards */}
               <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-mono">Awards</h2>
@@ -796,7 +792,8 @@ export default function Portfolio() {
                           <span className="font-extrabold">
                             Extracurricular Activities & Leadership:
                           </span>{" "}
-                          BPA President, CSHS President, Student Council President, TSA, Mock Trial.
+                          BPA President, CSHS President, Student Council
+                          President, TSA, Mock Trial.
                         </p>
                       </div>
                     )}
@@ -843,6 +840,5 @@ export default function Portfolio() {
         </main>
       </div>
     </div>
-  
   );
 }
