@@ -96,43 +96,35 @@ const stackItems: StackItem[] = [
 const awards: Award[] = [
   {
     id: 1,
-    label: "1st Place – Computer Programming Concepts (BPA NLC 2025)",
-  },
-  {
-    id: 2,
-    label: "1st Place – Information Technology Concepts (BPA NLC 2025)",
-  },
-  {
-    id: 3,
-    label: "1st Place – Meeting & Event Planning Concepts (BPA NLC 2024)",
-  },
-  {
-    id: 4,
-    label: "1st Place – Management, Marketing & HR Concepts (BPA NLC 2024)",
-  },
-  {
-    id: 5,
-    label: "1st Place – Legal Office Procedures (BPA SLC 2024)",
-  },
-  {
-    id: 6,
-    label: "2nd Place – Debating Technological Issues (TSA SLC 2025)",
-  },
-  {
-    id: 7,
     label: "Presidential Volunteer Service Award (2025)",
   },
   {
-    id: 8,
+    id: 2,
+    label: "1st Place – Computer Programming Concepts (BPA NLC 2025)",
+  },
+  {
+    id: 3,
+    label: "1st Place – Information Technology Concepts (BPA NLC 2025)",
+  },
+  {
+    id: 4,
+    label: "1st Place – Meeting & Event Planning Concepts (BPA NLC 2024)",
+  },
+  {
+    id: 5,
+    label: "1st Place – Management, Marketing & HR Concepts (BPA NLC 2024)",
+  },
+  {
+    id: 6,
+    label: "1st Place – Legal Office Procedures (BPA SLC 2024)",
+  },
+  {
+    id: 7,
     label: "3rd Place - Delaware High School Mock Trial Competition (2025)",
   },
   {
-    id: 9,
+    id: 8,
     label: "Top 20 - National High School Mock Trial Competition (2024)",
-  },
-  {
-    id: 10,
-    label: "Honorable Mention - Personal Essay & Memoir (2025)",
   },
 ];
 
@@ -300,7 +292,7 @@ export default function Portfolio() {
   }, [awardsExpanded]);
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 ">
+    <div className="min-h-screen bg-black text-white p-6 sm:pb-8 pb-20">
       <div
         className="grid grid-cols-1 
                  lg:grid-cols-[18rem_1fr]
@@ -851,5 +843,6 @@ export default function Portfolio() {
         </main>
       </div>
     </div>
+  
   );
 }
