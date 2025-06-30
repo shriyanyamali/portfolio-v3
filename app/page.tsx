@@ -133,7 +133,7 @@ const projects: Project[] = [
     id: 1,
     src: "/projects/verdictr.png",
     alt: "Verdictr screenshot",
-    href: "https://verdictr.github.io/",
+    href: "https://verdictr.shriyanyamali.tech/",
     viewText: "View Verdictr | w/ Stanford",
     bgcolor: "#d4eeff",
   },
