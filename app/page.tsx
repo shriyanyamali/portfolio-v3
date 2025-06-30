@@ -77,17 +77,20 @@ const timeline: TimelineItem[] = [
 ];
 
 const stackItems: StackItem[] = [
-  { id: 1, src: "/logos/ocaml-logo.svg", alt: "OCaml logo" },
   { id: 2, src: "/logos/java-logo.svg", alt: "Java logo" },
+  { id: 11, src: "/logos/python-logo.svg", alt: "Python logo" },
+  { id: 1, src: "/logos/ocaml-logo.svg", alt: "OCaml logo" },
+  { id: 5, src: "/logos/js-logo.svg", alt: "JS logo" },
+  { id: 6, src: "/logos/ts-logo.svg", alt: "TypeScript logo" },
   { id: 3, src: "/logos/html5-logo.svg", alt: "HTML5 logo" },
   { id: 4, src: "/logos/css3-logo.svg", alt: "CSS3 logo" },
-  { id: 5, src: "/logos/js-logo.svg", alt: "JS logo" },
-  { id: 6, src: "/logos/typescript-logo.svg", alt: "TypeScript logo" },
+  { id: 12, src: "/logos/pandas-logo.svg", alt: "Pandas logo" },
+  { id: 13, src: "/logos/numpy-logo.svg", alt: "Numpy logo" },
   { id: 7, src: "/logos/nextjs-logo.svg", alt: "Next.js logo" },
   { id: 8, src: "/logos/react-logo.svg", alt: "React logo" },
   { id: 9, src: "/logos/framer-logo.svg", alt: "Framer   logo" },
   { id: 10, src: "/logos/tailwind-logo.svg", alt: "Tailwind CSS logo" },
-  { id: 11, src: "/logos/git-logo.svg", alt: "Git logo" },
+  { id: 14, src: "/logos/git-logo.svg", alt: "Git logo" },
 ];
 
 const awards: Award[] = [
