@@ -141,7 +141,7 @@ const projects: Project[] = [
     id: 2,
     src: "/projects/lexflow.png",
     alt: "LexFlow screenshot",
-    href: "https://github.com/ShriyanYamali/LexFlow",
+    href: "https://github.com/shriyanyamali/LexFlow",
     viewText: "View LexFlow | w/ UPenn",
     bgcolor: "#e0e8fa",
   },
