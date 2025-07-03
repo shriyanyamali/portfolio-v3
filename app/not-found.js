@@ -30,6 +30,7 @@ export default function NotFound() {
             </a>
             <a
               href="mailto:yamalishriyan@gmail.com"
+              target="_blank"
               className="text-lg font-semibold text-white hover:underline"
             >
               Contact me <span aria-hidden="true">&rarr;</span>
