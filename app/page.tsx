@@ -553,11 +553,60 @@ export default function Portfolio() {
                 </Button>
               ))}
             </div>
+            
             <p className="font-mono text-sm">@shriyanyamali everywhere</p>
 
             <div className="text-gray-400 text-sm font-mono">
               <p>Copyright &copy; {new Date().getFullYear()} Shriyan Yamali.</p>
             </div>
+
+            {/* Featured GitHub Repos */}
+            <section className="pt-[0.5rem]">
+              <h3 className="text-xl font-mono mb-4 text-purple-500">
+                Featured Repositories
+              </h3>
+              <div className="flex flex-col gap-3">
+                <Link
+                  href="https://github.com/shriyanyamali/ShriyanYamali"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  GitHub Profile
+                </Link>
+
+                <Link
+                  href="https://github.com/shriyanyamali/awesome-components"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  Awesome Next.js Components
+                </Link>
+
+                <Link
+                  href="https://github.com/shriyanyamali/market-def-scraper"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  Market Definition Scraper
+                </Link>
+
+                <Link
+                  href="https://github.com/shriyanyamali/Verdictr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  Verdictr Web App
+                </Link>
+              </div>
+            </section>
           </div>
         </aside>
 
