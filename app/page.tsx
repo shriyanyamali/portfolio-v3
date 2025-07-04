@@ -509,59 +509,8 @@ export default function Portfolio() {
               </span>
             </div>
 
-            <Link href="https://dev.shriyanyamali.tech/">
-              <Button className="mt-8 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
-                <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
-                  View Full Site →
-                </div>
-                <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition duration-500 group-hover:translate-y-0">
-                  <span className="absolute h-full w-full translate-y-full skew-y-6 scale-y-0 bg-neutral-950 transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
-                  <span className="z-10 font-mono font-bold">
-                    {" "}
-                    View Full Site →
-                  </span>
-                </div>
-              </Button>
-            </Link>
-          </div>
-
-          {/* Social Icons */}
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              {[
-                {
-                  icon: <Instagram className="w-5 h-5" />,
-                  url: "https://www.instagram.com/shriyanyamali/",
-                },
-                {
-                  icon: <Twitter className="w-5 h-5" />,
-                  url: "https://x.com/shriyanyamali",
-                },
-                {
-                  icon: <Linkedin className="w-5 h-5" />,
-                  url: "https://www.linkedin.com/in/shriyanyamali/",
-                },
-                {
-                  icon: <Github className="w-5 h-5" />,
-                  url: "https://github.com/shriyanyamali",
-                },
-              ].map(({ icon, url }, i) => (
-                <Button key={i} asChild variant="ghost" size="icon">
-                  <Link href={url} target="_blank" rel="noopener noreferrer">
-                    {icon}
-                  </Link>
-                </Button>
-              ))}
-            </div>
-            
-            <p className="font-mono text-sm">@shriyanyamali everywhere</p>
-
-            <div className="text-gray-400 text-sm font-mono">
-              <p>Copyright &copy; {new Date().getFullYear()} Shriyan Yamali.</p>
-            </div>
-
             {/* Featured GitHub Repos */}
-            <section className="pt-[0.5rem]">
+            <section className="">
               <h3 className="text-xl font-mono mb-4 text-purple-500">
                 Featured Repositories
               </h3>
@@ -607,11 +556,62 @@ export default function Portfolio() {
                 </Link>
               </div>
             </section>
+
+            <Link href="https://dev.shriyanyamali.tech/">
+              <Button className="mt-6 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
+                <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
+                  View Full Site →
+                </div>
+                <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition duration-500 group-hover:translate-y-0">
+                  <span className="absolute h-full w-full translate-y-full skew-y-6 scale-y-0 bg-neutral-950 transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
+                  <span className="z-10 font-mono font-bold">
+                    {" "}
+                    View Full Site →
+                  </span>
+                </div>
+              </Button>
+            </Link>
+          </div>
+
+          {/* Social Icons */}
+          <div className="!mt-[1.5rem] space-y-6">
+            <div className="flex gap-4">
+              {[
+                {
+                  icon: <Instagram className="w-5 h-5" />,
+                  url: "https://www.instagram.com/shriyanyamali/",
+                },
+                {
+                  icon: <Twitter className="w-5 h-5" />,
+                  url: "https://x.com/shriyanyamali",
+                },
+                {
+                  icon: <Linkedin className="w-5 h-5" />,
+                  url: "https://www.linkedin.com/in/shriyanyamali/",
+                },
+                {
+                  icon: <Github className="w-5 h-5" />,
+                  url: "https://github.com/shriyanyamali",
+                },
+              ].map(({ icon, url }, i) => (
+                <Button key={i} asChild variant="ghost" size="icon">
+                  <Link href={url} target="_blank" rel="noopener noreferrer">
+                    {icon}
+                  </Link>
+                </Button>
+              ))}
+            </div>
+
+            <p className="font-mono text-sm">@shriyanyamali everywhere</p>
+
+            <div className="text-gray-400 text-sm font-mono">
+              <p>Copyright &copy; {new Date().getFullYear()} Shriyan Yamali.</p>
+            </div>
           </div>
         </aside>
 
         {/* Main Content */}
-        <main className="space-y-6 pt-[1.25rem]">
+        <main className="space-y-6 sm:pt-5">
           {/* Projects */}
           <section>
             <div className="flex justify-between items-center mb-4">
