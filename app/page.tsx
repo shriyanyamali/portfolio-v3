@@ -96,7 +96,7 @@ const stackItems: StackItem[] = [
 const awards: Award[] = [
   {
     id: 1,
-    label: "Presidential Volunteer Service Award (2025)",
+    label: "President’s Volunteer Service Award, Gold Level (2025)",
   },
   {
     id: 2,
@@ -487,7 +487,7 @@ export default function Portfolio() {
                 onMouseLeave={() => setHovering(false)}
                 onMouseMove={handleMouseMove}
               >
-                Gold Presidential Volunteer Service Award
+                President’s Volunteer Service Award, Gold Level
                 <span className="text-white">.</span>
                 <AnimatePresence>
                   {hovering && (
@@ -574,7 +574,7 @@ export default function Portfolio() {
           </div>
 
           {/* Social Icons */}
-          <div className="!mt-[1.5rem] space-y-6">
+          <div className="!mt-[1rem] space-y-5">
             <div className="flex gap-4">
               {[
                 {
