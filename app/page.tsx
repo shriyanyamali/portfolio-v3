@@ -557,7 +557,7 @@ export default function Portfolio() {
               </div>
             </section>
 
-            <Link href="https://dev.shriyanyamali.tech/">
+            {/* <Link href="https://dev.shriyanyamali.tech/">
               <Button className="mt-6 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
                 <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
                   View Full Site →
@@ -570,7 +570,8 @@ export default function Portfolio() {
                   </span>
                 </div>
               </Button>
-            </Link>
+            </Link> */}
+            
           </div>
 
           {/* Social Icons */}
