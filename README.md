@@ -10,7 +10,7 @@ Shriyan Yamali's personal website
 
 Code is licensed under the [MIT License](https://raw.githubusercontent.com/shriyanyamali/shriyanyamali.github.io/main/LICENSE). Attribution required.
 
-All images and media files in this repository are covered by the MIT license. They are copyrighted
+All images and media files in this repository are not covered by the MIT license. They are copyrighted
 and may not be copied, modified, distributed, or used in any form without prior written permission.
 
 Email: [yamalishriyan@gmail.com](mailto:yamalishriyan@gmail.com)
