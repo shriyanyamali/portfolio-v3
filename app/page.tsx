@@ -516,7 +516,7 @@ export default function Portfolio() {
               </h3>
               <div className="flex flex-col gap-3">
                 <Link
-                  href="https://github.com/shriyanyamali/ShriyanYamali"
+                  href="https://github.com/shriyanyamali/shriyanyamali"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
