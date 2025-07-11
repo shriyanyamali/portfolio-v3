@@ -350,7 +350,7 @@ export default function Portfolio() {
                 </motion.span>
                 .
               </span>{" "}
-              I have collaborated with{" "}
+              I&apos;ve collaborated with{" "}
               <motion.span
                 className="inline-block text-white break-words"
                 onMouseEnter={() => setHoverStanford(true)}
@@ -434,8 +434,7 @@ export default function Portfolio() {
                   />
                 </motion.div>
               )}
-              , along with other universities, where I’ve worked on programming
-              projects like{" "}
+              , as well as other universities, on programming projects such as{" "}
               <motion.span
                 className="text-green-500 inline-block break-words"
                 initial={{ scale: 1 }}
