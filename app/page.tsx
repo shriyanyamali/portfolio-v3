@@ -159,7 +159,7 @@ export default function Portfolio() {
   };
 
   const [hoverStanford, setHoverStanford] = useState(false);
-  const [hoverDelaware, setHoverDelaware] = useState(false);
+  const [hoverDelaware, setHoverPenn] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -395,11 +395,11 @@ export default function Portfolio() {
               and the{" "}
               <motion.span
                 className="inline-block text-white break-words"
-                onMouseEnter={() => setHoverDelaware(true)}
-                onMouseLeave={() => setHoverDelaware(false)}
+                onMouseEnter={() => setHoverPenn(true)}
+                onMouseLeave={() => setHoverPenn(false)}
                 transition={{ type: "spring", stiffness: 250 }}
               >
-                University of Delaware
+                University of Pennsylvania
               </motion.span>
               {hoverDelaware && (
                 <motion.div
@@ -426,8 +426,8 @@ export default function Portfolio() {
                   exit={{ opacity: 0, scale: 0.5 }}
                 >
                   <Image
-                    src="/blue-hen.png"
-                    alt="Blue Hen"
+                    src="/upenn-shield.png"
+                    alt="UPenn Shield"
                     width={60}
                     height={60}
                     className="rounded-full shadow-lg"
