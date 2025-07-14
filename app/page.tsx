@@ -514,15 +514,15 @@ export default function Portfolio() {
                 Featured Repositories
               </h3>
               <div className="flex flex-col gap-3">
-                <Link
-                  href="https://github.com/shriyanyamali/shriyanyamali"
+                {/* <Link
+                  href="link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
                 >
                   <Github className="w-5 h-5" />
-                  GitHub Profile
-                </Link>
+                  Name
+                </Link> */}
 
                 <Link
                   href="https://github.com/shriyanyamali/awesome-components"
