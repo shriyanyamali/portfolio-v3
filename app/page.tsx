@@ -46,7 +46,7 @@ const timeline: TimelineItem[] = [
   },
   {
     id: 2,
-    date: "June 2024 — Present | Stanford, California",
+    date: "June 2024 — Present | Remote",
     role: "Programming Intern",
     org: "Stanford Law School",
   },
@@ -64,7 +64,7 @@ const timeline: TimelineItem[] = [
   },
   {
     id: 5,
-    date: "July 2024 — Jan 2025 | Hanover, New Hampshire",
+    date: "July 2024 — Jan 2025 | Remote",
     role: "Assistant Editor",
     org: "Dartmouth College",
   },
