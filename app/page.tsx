@@ -133,9 +133,9 @@ const projects: Project[] = [
     id: 1,
     src: "/projects/verdictr.png",
     alt: "Verdictr screenshot",
-    href: "https://verdictr.shriyanyamali.tech/",
+    href: "https://verdictr.vercel.app/",
     viewText: "View Verdictr | w/ Stanford",
-    bgcolor: "#d4eeff",
+    bgcolor: "#fffafa",
   },
   {
     id: 2,
@@ -352,7 +352,7 @@ export default function Portfolio() {
               </span>{" "}
               I&apos;ve collaborated with{" "}
               <motion.span
-                className="inline-block text-white break-words"
+                className="inline-block text-white break-words underline decoration-2 decoration-wavy decoration-[#8b171b]"
                 onMouseEnter={() => setHoverStanford(true)}
                 onMouseLeave={() => setHoverStanford(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -394,7 +394,7 @@ export default function Portfolio() {
               )}{" "}
               and the{" "}
               <motion.span
-                className="inline-block text-white break-words"
+                className="inline-block text-white break-words underline decoration-2 decoration-wavy decoration-[#011F5B]"
                 onMouseEnter={() => setHoverPenn(true)}
                 onMouseLeave={() => setHoverPenn(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -436,18 +436,18 @@ export default function Portfolio() {
               )}
               , as well as other universities, on programming projects such as{" "}
               <motion.span
-                className="text-green-500 inline-block break-words"
+                className="text-[#3094FF] inline-block break-words"
                 initial={{ scale: 1 }}
-                whileHover={{ scale: 1.4, rotate: 1 }}
+                whileHover={{ scale: 1.2, rotate: -3 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 Verdictr
               </motion.span>{" "}
-              and{" "}
+              and {" "}
               <motion.span
-                className="text-emerald-200 inline-block break-words"
+                className="text-[#03cea4] inline-block break-words"
                 initial={{ scale: 1 }}
-                whileHover={{ scale: 1.2, rotate: -2 }}
+                whileHover={{ scale: 1.4, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 LexFlow
@@ -570,7 +570,6 @@ export default function Portfolio() {
                 </div>
               </Button>
             </Link> */}
-            
           </div>
 
           {/* Social Icons */}
