@@ -352,7 +352,7 @@ export default function Portfolio() {
               </span>{" "}
               I&apos;ve collaborated with{" "}
               <motion.span
-                className="inline-block text-white break-words underline decoration-2 decoration-wavy decoration-[#8b171b]"
+                className="inline-block text-white break-words"
                 onMouseEnter={() => setHoverStanford(true)}
                 onMouseLeave={() => setHoverStanford(false)}
                 transition={{ type: "spring", stiffness: 250 }}
@@ -394,7 +394,7 @@ export default function Portfolio() {
               )}{" "}
               and the{" "}
               <motion.span
-                className="inline-block text-white break-words underline decoration-2 decoration-wavy decoration-[#011F5B]"
+                className="inline-block text-white break-words"
                 onMouseEnter={() => setHoverPenn(true)}
                 onMouseLeave={() => setHoverPenn(false)}
                 transition={{ type: "spring", stiffness: 250 }}
