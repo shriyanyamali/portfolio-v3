@@ -131,10 +131,10 @@ const awards: Award[] = [
 const projects: Project[] = [
   {
     id: 1,
-    src: "/projects/verdictr.png",
-    alt: "Verdictr screenshot",
-    href: "https://verdictr.vercel.app/",
-    viewText: "View Verdictr | w/ Stanford",
+    src: "/projects/jurismercatus.png",
+    alt: "JurisMercatus screenshot",
+    href: "https://jurismercatus.vercel.app/",
+    viewText: "JurisMercatus | w/ Stanford",
     bgcolor: "#fffafa",
   },
   {
@@ -142,7 +142,7 @@ const projects: Project[] = [
     src: "/projects/lexflow.png",
     alt: "LexFlow screenshot",
     href: "https://github.com/shriyanyamali/LexFlow",
-    viewText: "View LexFlow | w/ UPenn",
+    viewText: "LexFlow | w/ UPenn",
     bgcolor: "#e0e8fa",
   },
 ];
@@ -441,7 +441,7 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.2, rotate: -3 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                Verdictr
+                JurisMercatus
               </motion.span>{" "}
               and {" "}
               <motion.span
@@ -545,13 +545,13 @@ export default function Portfolio() {
                 </Link>
 
                 <Link
-                  href="https://github.com/shriyanyamali/Verdictr"
+                  href="https://github.com/shriyanyamali/JurisMercatus"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
                 >
                   <Github className="w-5 h-5" />
-                  Verdictr Web App
+                  JurisMercatus Web App
                 </Link>
               </div>
             </section>
