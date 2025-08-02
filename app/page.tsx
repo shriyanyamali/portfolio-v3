@@ -525,23 +525,13 @@ export default function Portfolio() {
                 </Link> */}
 
                 <Link
-                  href="https://github.com/shriyanyamali/awesome-components"
+                  href="https://github.com/shriyanyamali/Lextract"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
                 >
                   <Github className="w-5 h-5" />
-                  Awesome Next.js Components
-                </Link>
-
-                <Link
-                  href="https://github.com/shriyanyamali/market-def-scraper"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                  Market Definition Scraper
+                  Lextract (paper forthcoming)
                 </Link>
 
                 <Link
@@ -553,6 +543,17 @@ export default function Portfolio() {
                   <Github className="w-5 h-5" />
                   JurisMercatus Web App
                 </Link>
+
+                <Link
+                  href="https://github.com/shriyanyamali/awesome-components"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  Awesome Next.js Components
+                </Link>
+
               </div>
             </section>
 
