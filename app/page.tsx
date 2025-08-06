@@ -143,7 +143,7 @@ const projects: Project[] = [
     alt: "Lextract screenshot",
     href: "https://lextract.shriyanyamali.tech/",
     viewText: "Lextract  w/ Stanford",
-    bgcolor: "#101010",
+    bgcolor: "#FFFAFA",
   },
 ];
 
