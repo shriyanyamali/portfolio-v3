@@ -134,16 +134,16 @@ const projects: Project[] = [
     src: "/projects/jurismercatus.png",
     alt: "JurisMercatus screenshot",
     href: "https://jurismercatus.vercel.app/",
-    viewText: "JurisMercatus | w/ Stanford",
+    viewText: "JurisMercatus w/ Stanford",
     bgcolor: "#fffafa",
   },
   {
     id: 2,
-    src: "/projects/lexflow.png",
-    alt: "LexFlow screenshot",
-    href: "https://github.com/shriyanyamali/LexFlow",
-    viewText: "LexFlow | w/ UPenn",
-    bgcolor: "#e0e8fa",
+    src: "/projects/lextract.png",
+    alt: "Lextract screenshot",
+    href: "https://lextract.shriyanyamali.tech/",
+    viewText: "Lextract  w/ Stanford",
+    bgcolor: "#101010",
   },
 ];
 
@@ -292,7 +292,7 @@ export default function Portfolio() {
   }, [awardsExpanded]);
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 sm:pb-8 pb-20">
+    <div className="min-h-screen bg-[#0A0A0A] text-white p-6 sm:pb-8 pb-20">
       <div
         className="grid grid-cols-1 
                  lg:grid-cols-[18rem_1fr]
@@ -443,7 +443,7 @@ export default function Portfolio() {
               >
                 JurisMercatus
               </motion.span>{" "}
-              and {" "}
+              and{" "}
               <motion.span
                 className="text-[#03cea4] inline-block break-words"
                 initial={{ scale: 1 }}
@@ -525,6 +525,16 @@ export default function Portfolio() {
                 </Link> */}
 
                 <Link
+                  href="https://github.com/shriyanyamali/LexFlow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  LexFlow
+                </Link>
+
+                <Link
                   href="https://github.com/shriyanyamali/Lextract"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -553,7 +563,6 @@ export default function Portfolio() {
                   <Github className="w-5 h-5" />
                   Awesome Next.js Components
                 </Link>
-
               </div>
             </section>
 
@@ -647,7 +656,7 @@ export default function Portfolio() {
                   hover:w-[calc(100%-1rem)]
                   justify-start
                   px-[0.875rem] 
-                "
+                  "
                   >
                     <Link href={href} target="_blank" rel="noopener noreferrer">
                       <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
