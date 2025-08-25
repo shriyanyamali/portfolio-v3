@@ -141,7 +141,7 @@ const projects: Project[] = [
     id: 2,
     src: "/projects/lextract.png",
     alt: "Lextract screenshot",
-    href: "https://lextract.shriyanyamali.tech/",
+    href: "https://lextract.shriyanyamali.com/",
     viewText: "Lextract  w/ Stanford",
     bgcolor: "#FFFAFA",
   },
@@ -566,7 +566,7 @@ export default function Portfolio() {
               </div>
             </section>
 
-            {/* <Link href="https://dev.shriyanyamali.tech/">
+            {/* <Link href="https://dev.shriyanyamali.com/">
               <Button className="mt-6 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
                 <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
                   View Full Site →
@@ -819,7 +819,7 @@ export default function Portfolio() {
                   </Button>
                 </div>
                 <Link
-                  href="https://www.shriyanyamali.tech/Shriyan%20Yamali%20Resume.pdf"
+                  href="https://www.shriyanyamali.com/Shriyan%20Yamali%20Resume.pdf"
                   className="sm:hidden block"
                 >
                   <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
