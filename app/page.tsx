@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 import { Menu, Twitter, Linkedin, Instagram, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
@@ -292,229 +293,234 @@ export default function Portfolio() {
   }, [awardsExpanded]);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white p-6 sm:pb-8 pb-20">
-      <div
-        className="grid grid-cols-1 
+    <>
+      <Head>
+        <title>About Us | New Site</title>
+        <link rel="canonical" href="https://shriyanyamali.com" />
+      </Head>
+      <div className="min-h-screen bg-[#0A0A0A] text-white p-6 sm:pb-8 pb-20">
+        <div
+          className="grid grid-cols-1 
                  lg:grid-cols-[18rem_1fr]
                  xl:grid-cols-[25rem_1fr]
                  gap-8"
-      >
-        {/* Sidebar */}
-        <aside className="space-y-8">
-          {/* Profile */}
-          <div className="flex items-center gap-4 pt-4">
-            <Image
-              src="/profile-picture.jpg"
-              alt="Profile Photo"
-              width={60}
-              height={60}
-              className="rounded-full"
-            />
-            <div>
-              <h1
-                ref={headingRef}
-                data-value="SHRIYAN YAMALI"
-                className={`
+        >
+          {/* Sidebar */}
+          <aside className="space-y-8">
+            {/* Profile */}
+            <div className="flex items-center gap-4 pt-4">
+              <Image
+                src="/profile-picture.jpg"
+                alt="Profile Photo"
+                width={60}
+                height={60}
+                className="rounded-full"
+              />
+              <div>
+                <h1
+                  ref={headingRef}
+                  data-value="SHRIYAN YAMALI"
+                  className={`
                   text-2xl font-mono p-2 rounded transition-colors duration-500 ease-in-out
                 `}
-              >
-                SHRIYAN YAMALI
-              </h1>
-              <p className="text-base text-neutral-200 font-mono">
-                📍Newark, Delaware
-              </p>
+                >
+                  SHRIYAN YAMALI
+                </h1>
+                <p className="text-base text-neutral-200 font-mono">
+                  📍Newark, Delaware
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Bio + Full Site Button */}
-          <div className="space-y-6 relative" ref={containerRef}>
-            <div className="pl-4 border-l-4 border-yellow-400 text-white text-md font-bold leading-relaxed font-mono">
-              Hi, I’m a high school student interested in{" "}
-              <motion.span
-                className="text-cyan-400 inline-block break-words"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.15, rotate: -3 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                computer science
-              </motion.span>{" "}
-              and{" "}
-              <span className="whitespace-nowrap">
+            {/* Bio + Full Site Button */}
+            <div className="space-y-6 relative" ref={containerRef}>
+              <div className="pl-4 border-l-4 border-yellow-400 text-white text-md font-bold leading-relaxed font-mono">
+                Hi, I’m a high school student interested in{" "}
                 <motion.span
-                  className="inline-block text-pink-500"
+                  className="text-cyan-400 inline-block break-words"
                   initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.15, rotate: 3 }}
+                  whileHover={{ scale: 1.15, rotate: -3 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  law
+                  computer science
+                </motion.span>{" "}
+                and{" "}
+                <span className="whitespace-nowrap">
+                  <motion.span
+                    className="inline-block text-pink-500"
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.15, rotate: 3 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    law
+                  </motion.span>
+                  .
+                </span>{" "}
+                I&apos;ve collaborated with{" "}
+                <motion.span
+                  className="inline-block text-white break-words"
+                  onMouseEnter={() => setHoverStanford(true)}
+                  onMouseLeave={() => setHoverStanford(false)}
+                  transition={{ type: "spring", stiffness: 250 }}
+                >
+                  Stanford University
                 </motion.span>
-                .
-              </span>{" "}
-              I&apos;ve collaborated with{" "}
-              <motion.span
-                className="inline-block text-white break-words"
-                onMouseEnter={() => setHoverStanford(true)}
-                onMouseLeave={() => setHoverStanford(false)}
-                transition={{ type: "spring", stiffness: 250 }}
-              >
-                Stanford University
-              </motion.span>
-              {hoverStanford && (
-                <motion.div
-                  className="absolute pointer-events-none z-50"
-                  style={{
-                    top: position.y,
-                    left: position.x,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                  initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1.1,
-                    rotate: [0, 5, -5, 0],
-                    transition: {
-                      scale: { type: "spring", stiffness: 500, damping: 10 },
-                      rotate: {
-                        duration: 0.25,
-                        repeat: 0,
-                        ease: "easeInOut",
+                {hoverStanford && (
+                  <motion.div
+                    className="absolute pointer-events-none z-50"
+                    style={{
+                      top: position.y,
+                      left: position.x,
+                      transform: "translate(-50%, -50%)",
+                    }}
+                    initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1.1,
+                      rotate: [0, 5, -5, 0],
+                      transition: {
+                        scale: { type: "spring", stiffness: 500, damping: 10 },
+                        rotate: {
+                          duration: 0.25,
+                          repeat: 0,
+                          ease: "easeInOut",
+                        },
                       },
-                    },
-                  }}
-                  exit={{ opacity: 0, scale: 0.5 }}
+                    }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                  >
+                    <Image
+                      src="/stanford-tree.png"
+                      alt="Stanford Tree"
+                      width={60}
+                      height={60}
+                      className="rounded-full shadow-lg"
+                    />
+                  </motion.div>
+                )}{" "}
+                and the{" "}
+                <motion.span
+                  className="inline-block text-white break-words"
+                  onMouseEnter={() => setHoverPenn(true)}
+                  onMouseLeave={() => setHoverPenn(false)}
+                  transition={{ type: "spring", stiffness: 250 }}
                 >
-                  <Image
-                    src="/stanford-tree.png"
-                    alt="Stanford Tree"
-                    width={60}
-                    height={60}
-                    className="rounded-full shadow-lg"
-                  />
-                </motion.div>
-              )}{" "}
-              and the{" "}
-              <motion.span
-                className="inline-block text-white break-words"
-                onMouseEnter={() => setHoverPenn(true)}
-                onMouseLeave={() => setHoverPenn(false)}
-                transition={{ type: "spring", stiffness: 250 }}
-              >
-                University of Pennsylvania
-              </motion.span>
-              {hoverDelaware && (
-                <motion.div
-                  className="absolute pointer-events-none z-50"
-                  style={{
-                    top: position.y,
-                    left: position.x,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                  initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1.4,
-                    rotate: [0, 5, -5, 0],
-                    transition: {
-                      scale: { type: "spring", stiffness: 500, damping: 10 },
-                      rotate: {
-                        duration: 0.25,
-                        repeat: 0,
-                        ease: "easeInOut",
+                  University of Pennsylvania
+                </motion.span>
+                {hoverDelaware && (
+                  <motion.div
+                    className="absolute pointer-events-none z-50"
+                    style={{
+                      top: position.y,
+                      left: position.x,
+                      transform: "translate(-50%, -50%)",
+                    }}
+                    initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1.4,
+                      rotate: [0, 5, -5, 0],
+                      transition: {
+                        scale: { type: "spring", stiffness: 500, damping: 10 },
+                        rotate: {
+                          duration: 0.25,
+                          repeat: 0,
+                          ease: "easeInOut",
+                        },
                       },
-                    },
-                  }}
-                  exit={{ opacity: 0, scale: 0.5 }}
+                    }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                  >
+                    <Image
+                      src="/upenn-shield.png"
+                      alt="UPenn Shield"
+                      width={60}
+                      height={60}
+                      className="rounded-full shadow-lg"
+                    />
+                  </motion.div>
+                )}
+                , as well as other universities, on programming projects such as{" "}
+                <motion.span
+                  className="text-[#3094FF] inline-block break-words"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.2, rotate: -3 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <Image
-                    src="/upenn-shield.png"
-                    alt="UPenn Shield"
-                    width={60}
-                    height={60}
-                    className="rounded-full shadow-lg"
-                  />
-                </motion.div>
-              )}
-              , as well as other universities, on programming projects such as{" "}
-              <motion.span
-                className="text-[#3094FF] inline-block break-words"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.2, rotate: -3 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                JurisMercatus
-              </motion.span>{" "}
-              and{" "}
-              <motion.span
-                className="text-[#03cea4] inline-block break-words"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.4, rotate: 1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                LexFlow
-              </motion.span>
-              , while concurrently conducting legal research. I am also a{" "}
-              <motion.span
-                className="inline-block break-words"
-                initial={{ scale: 1, color: "#7393B3" }}
-                whileHover={{
-                  scale: 1.2,
-                  color: "#facc15",
-                  rotate: [0, -5, 5, 0],
-                  transition: { duration: 0.5 },
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                4x
-              </motion.span>{" "}
-              BPA{" "}
-              <div className="relative inline-block group">
-                <span className="font-semibold text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  National Champion
+                  JurisMercatus
+                </motion.span>{" "}
+                and{" "}
+                <motion.span
+                  className="text-[#03cea4] inline-block break-words"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.4, rotate: 1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  LexFlow
+                </motion.span>
+                , while concurrently conducting legal research. I am also a{" "}
+                <motion.span
+                  className="inline-block break-words"
+                  initial={{ scale: 1, color: "#7393B3" }}
+                  whileHover={{
+                    scale: 1.2,
+                    color: "#facc15",
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.5 },
+                  }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  4x
+                </motion.span>{" "}
+                BPA{" "}
+                <div className="relative inline-block group">
+                  <span className="font-semibold text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                    National Champion
+                  </span>
+
+                  {/* Confetti container */}
+                  <div className="absolute top-1/2 left-1/2 pointer-events-none z-50">
+                    {[...Array(25)].map((_, i) => (
+                      <span key={i} className={`confetti confetti-${i}`} />
+                    ))}
+                  </div>
+                </div>{" "}
+                and an awardee of the{" "}
+                <span
+                  className="relative inline font-semibold text-white hover:text-yellow-400 italic transition-colors break-words"
+                  onMouseEnter={() => setHovering(true)}
+                  onMouseLeave={() => setHovering(false)}
+                  onMouseMove={handleMouseMove}
+                >
+                  President’s Volunteer Service Award, Gold Level
+                  <span className="text-white">.</span>
+                  <AnimatePresence>
+                    {hovering && (
+                      <motion.div
+                        className="fixed z-50 bg-neutral-900 text-white text-xs px-4 py-2 rounded-md shadow-lg border border-yellow-400 flex items-center gap-2 pointer-events-none"
+                        style={{
+                          top: mousePos.y + 25,
+                          left: mousePos.x - 100,
+                        }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        100+ hours volunteered
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </span>
+              </div>
 
-                {/* Confetti container */}
-                <div className="absolute top-1/2 left-1/2 pointer-events-none z-50">
-                  {[...Array(25)].map((_, i) => (
-                    <span key={i} className={`confetti confetti-${i}`} />
-                  ))}
-                </div>
-              </div>{" "}
-              and an awardee of the{" "}
-              <span
-                className="relative inline font-semibold text-white hover:text-yellow-400 italic transition-colors break-words"
-                onMouseEnter={() => setHovering(true)}
-                onMouseLeave={() => setHovering(false)}
-                onMouseMove={handleMouseMove}
-              >
-                President’s Volunteer Service Award, Gold Level
-                <span className="text-white">.</span>
-                <AnimatePresence>
-                  {hovering && (
-                    <motion.div
-                      className="fixed z-50 bg-neutral-900 text-white text-xs px-4 py-2 rounded-md shadow-lg border border-yellow-400 flex items-center gap-2 pointer-events-none"
-                      style={{
-                        top: mousePos.y + 25,
-                        left: mousePos.x - 100,
-                      }}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      100+ hours volunteered
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </span>
-            </div>
-
-            {/* Featured GitHub Repos */}
-            <section className="">
-              <h3 className="text-xl font-mono mb-4 text-purple-500">
-                Featured Repositories
-              </h3>
-              <div className="flex flex-col gap-3">
-                {/* <Link
+              {/* Featured GitHub Repos */}
+              <section className="">
+                <h3 className="text-xl font-mono mb-4 text-purple-500">
+                  Featured Repositories
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {/* <Link
                   href="link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -524,49 +530,49 @@ export default function Portfolio() {
                   Name
                 </Link> */}
 
-                <Link
-                  href="https://github.com/shriyanyamali/LexFlow"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                  LexFlow
-                </Link>
+                  <Link
+                    href="https://github.com/shriyanyamali/LexFlow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                  >
+                    <Github className="w-5 h-5" />
+                    LexFlow
+                  </Link>
 
-                <Link
-                  href="https://github.com/shriyanyamali/Lextract"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                  Lextract (paper forthcoming)
-                </Link>
+                  <Link
+                    href="https://github.com/shriyanyamali/Lextract"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                  >
+                    <Github className="w-5 h-5" />
+                    Lextract (paper forthcoming)
+                  </Link>
 
-                <Link
-                  href="https://github.com/shriyanyamali/JurisMercatus"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                  JurisMercatus Web App
-                </Link>
+                  <Link
+                    href="https://github.com/shriyanyamali/JurisMercatus"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                  >
+                    <Github className="w-5 h-5" />
+                    JurisMercatus Web App
+                  </Link>
 
-                <Link
-                  href="https://github.com/shriyanyamali/awesome-components"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                  Awesome Next.js Components
-                </Link>
-              </div>
-            </section>
+                  <Link
+                    href="https://github.com/shriyanyamali/awesome-components"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-mono text-white hover:underline transition-colors"
+                  >
+                    <Github className="w-5 h-5" />
+                    Awesome Next.js Components
+                  </Link>
+                </div>
+              </section>
 
-            {/* <Link href="https://dev.shriyanyamali.com/">
+              {/* <Link href="https://dev.shriyanyamali.com/">
               <Button className="mt-6 group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
                 <div className="font-mono font-bold inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[200%]">
                   View Full Site →
@@ -580,73 +586,75 @@ export default function Portfolio() {
                 </div>
               </Button>
             </Link> */}
-          </div>
-
-          {/* Social Icons */}
-          <div className="!mt-[1rem] space-y-5">
-            <div className="flex gap-4">
-              {[
-                {
-                  icon: <Instagram className="w-5 h-5" />,
-                  url: "https://www.instagram.com/shriyanyamali/",
-                },
-                {
-                  icon: <Twitter className="w-5 h-5" />,
-                  url: "https://x.com/shriyanyamali",
-                },
-                {
-                  icon: <Linkedin className="w-5 h-5" />,
-                  url: "https://www.linkedin.com/in/shriyanyamali/",
-                },
-                {
-                  icon: <Github className="w-5 h-5" />,
-                  url: "https://github.com/shriyanyamali",
-                },
-              ].map(({ icon, url }, i) => (
-                <Button key={i} asChild variant="ghost" size="icon">
-                  <Link href={url} target="_blank" rel="noopener noreferrer">
-                    {icon}
-                  </Link>
-                </Button>
-              ))}
             </div>
 
-            <p className="font-mono text-sm">@shriyanyamali everywhere</p>
+            {/* Social Icons */}
+            <div className="!mt-[1rem] space-y-5">
+              <div className="flex gap-4">
+                {[
+                  {
+                    icon: <Instagram className="w-5 h-5" />,
+                    url: "https://www.instagram.com/shriyanyamali/",
+                  },
+                  {
+                    icon: <Twitter className="w-5 h-5" />,
+                    url: "https://x.com/shriyanyamali",
+                  },
+                  {
+                    icon: <Linkedin className="w-5 h-5" />,
+                    url: "https://www.linkedin.com/in/shriyanyamali/",
+                  },
+                  {
+                    icon: <Github className="w-5 h-5" />,
+                    url: "https://github.com/shriyanyamali",
+                  },
+                ].map(({ icon, url }, i) => (
+                  <Button key={i} asChild variant="ghost" size="icon">
+                    <Link href={url} target="_blank" rel="noopener noreferrer">
+                      {icon}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
 
-            <div className="text-gray-400 text-sm font-mono">
-              <p>Copyright &copy; {new Date().getFullYear()} Shriyan Yamali.</p>
-            </div>
-          </div>
-        </aside>
+              <p className="font-mono text-sm">@shriyanyamali everywhere</p>
 
-        {/* Main Content */}
-        <main className="space-y-6 sm:pt-5">
-          {/* Projects */}
-          <section>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-mono">Projects</h2>
+              <div className="text-gray-400 text-sm font-mono">
+                <p>
+                  Copyright &copy; {new Date().getFullYear()} Shriyan Yamali.
+                </p>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map(({ id, src, alt, href, viewText, bgcolor }) => (
-                <div
-                  key={id}
-                  className="relative h-[20rem] rounded-lg overflow-hidden"
-                  style={{ backgroundColor: bgcolor }}
-                >
-                  <Image
-                    src={src}
-                    alt={alt}
-                    fill
-                    className=" 
+          </aside>
+
+          {/* Main Content */}
+          <main className="space-y-6 sm:pt-5">
+            {/* Projects */}
+            <section>
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-mono">Projects</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {projects.map(({ id, src, alt, href, viewText, bgcolor }) => (
+                  <div
+                    key={id}
+                    className="relative h-[20rem] rounded-lg overflow-hidden"
+                    style={{ backgroundColor: bgcolor }}
+                  >
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      className=" 
                   object-contain sm:object-cover lg:object-contain xl:object-cover
                   "
-                  />
+                    />
 
-                  <Button
-                    asChild
-                    variant="projectb"
-                    size="icon"
-                    className="
+                    <Button
+                      asChild
+                      variant="projectb"
+                      size="icon"
+                      className="
                   absolute bottom-2 left-2
                   h-10 w-10
                   overflow-hidden
@@ -657,133 +665,174 @@ export default function Portfolio() {
                   justify-start
                   px-[0.875rem] 
                   "
-                  >
-                    <Link href={href} target="_blank" rel="noopener noreferrer">
-                      <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
-                        +
-                      </span>
-                      <span className="text-2xl font-mono block group-hover:inline sm:hidden">
-                        →
-                      </span>
-                      <span className="text-base sm:text-2xl md:text-lg xl:text-xl 2xl:text-2xl font-mono hidden group-hover:inline pl-4">
-                        {viewText}
-                      </span>
-                    </Link>
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </section>
+                    >
+                      <Link
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="text-2xl font-mono hidden sm:inline group-hover:hidden">
+                          +
+                        </span>
+                        <span className="text-2xl font-mono block group-hover:inline sm:hidden">
+                          →
+                        </span>
+                        <span className="text-base sm:text-2xl md:text-lg xl:text-xl 2xl:text-2xl font-mono hidden group-hover:inline pl-4">
+                          {viewText}
+                        </span>
+                      </Link>
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-          {/* Tech Stack */}
-          <section className="bg-gradient-to-br from-blue-600 to-blue-700  rounded-xl p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-mono">Tech Stack</h2>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              {stackItems.map(({ id, src, alt }) => (
-                <div
-                  key={id}
-                  className="w-12 h-12 bg-neutral-200 rounded-xl flex items-center justify-center overflow-hidden
+            {/* Tech Stack */}
+            <section className="bg-gradient-to-br from-blue-600 to-blue-700  rounded-xl p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-mono">Tech Stack</h2>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                {stackItems.map(({ id, src, alt }) => (
+                  <div
+                    key={id}
+                    className="w-12 h-12 bg-neutral-200 rounded-xl flex items-center justify-center overflow-hidden
                   transform transition duration-300 ease-in-out
                 hover:bg-neutral-800
                   hover:ring-2
                   hover:ring-white
                   "
-                >
-                  <Image
-                    src={src}
-                    alt={alt}
-                    width={30}
-                    height={30}
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-start">
-            {" "}
-            <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
-              {/* Contact */}
-              <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-5">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-mono">Contact</h2>
-                  <Button asChild variant="ghost" size="icon">
-                    <Link href="mailto:yamalishriyan@gmail.com">
-                      <span className="text-2xl font-mono">→</span>
-                    </Link>
-                  </Button>
-                </div>
-                <p className="text-base font-mono text-gray-400">
-                  yamalishriyan[at]gmail[dot]com
-                </p>
-              </section>
-
-              {/* Awards */}
-              <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-mono">Awards</h2>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setAwardsExpanded((v) => !v)}
                   >
-                    <span className="text-2xl font-mono">
-                      {awardsExpanded ? "–" : "+"}
-                    </span>
-                  </Button>
-                </div>
-                <div
-                  ref={awardsRef}
-                  style={{ maxHeight: awardsMaxH }}
-                  className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-                >
-                  <AnimatePresence>
-                    {awardsExpanded && (
-                      <ul className="pt-2 space-y-2">
-                        {awards.map((award, i) => (
-                          <motion.li
-                            key={award.id}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -5 }}
-                            transition={{
-                              delay: i * 0.1,
-                              type: "spring",
-                              stiffness: 200,
-                            }}
-                            className="text-base font-mono bg-gray-800 rounded px-3 py-2 break-words"
-                          >
-                            {award.label}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    )}
-                  </AnimatePresence>
-                </div>
-                <div ref={awardsBottomRef} />
-              </section>
-            </div>
-            {/* Right column: Resume */}
-            <div className="md:col-span-1 min-w-0">
-              <section
-                style={{ minHeight: resumeMinH }}
-                className={`
+                    <Image
+                      src={src}
+                      alt={alt}
+                      width={30}
+                      height={30}
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-start">
+              {" "}
+              <div ref={leftColumnRef} className="space-y-4 md:col-span-1">
+                {/* Contact */}
+                <section className="relative rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-5">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-2xl font-mono">Contact</h2>
+                    <Button asChild variant="ghost" size="icon">
+                      <Link href="mailto:yamalishriyan@gmail.com">
+                        <span className="text-2xl font-mono">→</span>
+                      </Link>
+                    </Button>
+                  </div>
+                  <p className="text-base font-mono text-gray-400">
+                    yamalishriyan[at]gmail[dot]com
+                  </p>
+                </section>
+
+                {/* Awards */}
+                <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-mono">Awards</h2>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setAwardsExpanded((v) => !v)}
+                    >
+                      <span className="text-2xl font-mono">
+                        {awardsExpanded ? "–" : "+"}
+                      </span>
+                    </Button>
+                  </div>
+                  <div
+                    ref={awardsRef}
+                    style={{ maxHeight: awardsMaxH }}
+                    className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                  >
+                    <AnimatePresence>
+                      {awardsExpanded && (
+                        <ul className="pt-2 space-y-2">
+                          {awards.map((award, i) => (
+                            <motion.li
+                              key={award.id}
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -5 }}
+                              transition={{
+                                delay: i * 0.1,
+                                type: "spring",
+                                stiffness: 200,
+                              }}
+                              className="text-base font-mono bg-gray-800 rounded px-3 py-2 break-words"
+                            >
+                              {award.label}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <div ref={awardsBottomRef} />
+                </section>
+              </div>
+              {/* Right column: Resume */}
+              <div className="md:col-span-1 min-w-0">
+                <section
+                  style={{ minHeight: resumeMinH }}
+                  className={`
                 
                   relative overflow-hidden rounded-xl
                   bg-gradient-to-br from-gray-900 to-gray-800
                   p-6
                   ${resumeExpanded ? "pb-6" : "pb-[1.5rem]"}
                 `}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-mono">Resume</h2>
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-mono">Resume</h2>
+                    <Link
+                      href="/Shriyan%20Yamali%20Resume.pdf"
+                      target="_blank"
+                      className="sm:w-1/2 sm:block hidden"
+                    >
+                      <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
+                        <div className="font-mono text-lg translate-x-0 opacity-100 transition group-hover:-translate-x-[150%] group-hover:opacity-0">
+                          View PDF
+                        </div>
+                        <div className="absolute translate-x-[150%] opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100">
+                          <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                          >
+                            <path
+                              d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                              fill="currentColor"
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </div>
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setResumeExpanded((v) => !v)}
+                    >
+                      <span className="text-2xl font-mono">
+                        {resumeExpanded ? "–" : "+"}
+                      </span>
+                    </Button>
+                  </div>
                   <Link
-                    href="/Shriyan%20Yamali%20Resume.pdf"
-                    target="_blank"
-                    className="sm:w-1/2 sm:block hidden"
+                    href="https://www.shriyanyamali.com/Shriyan%20Yamali%20Resume.pdf"
+                    className="sm:hidden block"
                   >
                     <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
                       <div className="font-mono text-lg translate-x-0 opacity-100 transition group-hover:-translate-x-[150%] group-hover:opacity-0">
@@ -808,98 +857,62 @@ export default function Portfolio() {
                       </div>
                     </Button>
                   </Link>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setResumeExpanded((v) => !v)}
-                  >
+                  <div>
                     <span className="text-2xl font-mono">
-                      {resumeExpanded ? "–" : "+"}
+                      {!resumeExpanded && (
+                        <div className="mt-4 space-y-2 text-base font-mono text-gray-400">
+                          <p>
+                            <span className="font-extrabold">
+                              Extracurricular Activities & Leadership:
+                            </span>{" "}
+                            BPA President, CSHS President, Student Council
+                            President, TSA, Mock Trial.
+                          </p>
+                        </div>
+                      )}
                     </span>
-                  </Button>
-                </div>
-                <Link
-                  href="https://www.shriyanyamali.com/Shriyan%20Yamali%20Resume.pdf"
-                  className="sm:hidden block"
-                >
-                  <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
-                    <div className="font-mono text-lg translate-x-0 opacity-100 transition group-hover:-translate-x-[150%] group-hover:opacity-0">
-                      View PDF
-                    </div>
-                    <div className="absolute translate-x-[150%] opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </Button>
-                </Link>
-                <div>
-                  <span className="text-2xl font-mono">
-                    {!resumeExpanded && (
-                      <div className="mt-4 space-y-2 text-base font-mono text-gray-400">
-                        <p>
-                          <span className="font-extrabold">
-                            Extracurricular Activities & Leadership:
-                          </span>{" "}
-                          BPA President, CSHS President, Student Council
-                          President, TSA, Mock Trial.
-                        </p>
-                      </div>
-                    )}
-                  </span>
-                </div>
-                <div
-                  ref={resumeRef}
-                  style={{ maxHeight: resumeMaxH }}
-                  className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-                >
-                  <AnimatePresence>
-                    {resumeExpanded && (
-                      <ul className="space-y-4 pt-2">
-                        {timeline.map((item, i) => (
-                          <motion.li
-                            key={item.id}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -5 }}
-                            transition={{
-                              delay: i * 0.1,
-                              type: "spring",
-                              stiffness: 200,
-                            }}
-                            className="bg-gray-800 rounded-md p-4 font-mono"
-                          >
-                            <div className="text-sm text-gray-400">
-                              {item.date}
-                            </div>
-                            <div className="mt-1 text-base">{item.org}</div>
-                            <div className="text-base text-gray-500">
-                              {item.role}
-                            </div>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    )}
-                  </AnimatePresence>
-                </div>
-                <div ref={resumeBottomRef} />
-              </section>
+                  </div>
+                  <div
+                    ref={resumeRef}
+                    style={{ maxHeight: resumeMaxH }}
+                    className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                  >
+                    <AnimatePresence>
+                      {resumeExpanded && (
+                        <ul className="space-y-4 pt-2">
+                          {timeline.map((item, i) => (
+                            <motion.li
+                              key={item.id}
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -5 }}
+                              transition={{
+                                delay: i * 0.1,
+                                type: "spring",
+                                stiffness: 200,
+                              }}
+                              className="bg-gray-800 rounded-md p-4 font-mono"
+                            >
+                              <div className="text-sm text-gray-400">
+                                {item.date}
+                              </div>
+                              <div className="mt-1 text-base">{item.org}</div>
+                              <div className="text-base text-gray-500">
+                                {item.role}
+                              </div>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <div ref={resumeBottomRef} />
+                </section>
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
