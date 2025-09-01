@@ -296,7 +296,7 @@ export default function Portfolio() {
     <>
       <Head>
         <title>About Us | New Site</title>
-        <link rel="canonical" href="https://shriyanyamali.com" />
+        <link rel="canonical" href="https://shriyanyamali.com/" />
       </Head>
       <div className="min-h-screen bg-[#0A0A0A] text-white p-6 sm:pb-8 pb-20">
         <div
@@ -831,7 +831,7 @@ export default function Portfolio() {
                     </Button>
                   </div>
                   <Link
-                    href="https://www.shriyanyamali.com/Shriyan%20Yamali%20Resume.pdf"
+                    href="/Shriyan%20Yamali%20Resume.pdf"
                     className="sm:hidden block"
                   >
                     <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
