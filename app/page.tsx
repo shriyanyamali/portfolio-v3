@@ -793,7 +793,7 @@ export default function Portfolio() {
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-2xl font-mono">Resume</h2>
                     <Link
-                      href="/Shriyan%20Yamali%20Resume.pdf"
+                      href="/Shriyan_Yamali_Resume.pdf"
                       target="_blank"
                       className="sm:w-1/2 sm:block hidden"
                     >
