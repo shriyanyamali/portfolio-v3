@@ -831,7 +831,7 @@ export default function Portfolio() {
                     </Button>
                   </div>
                   <Link
-                    href="/Shriyan%20Yamali%20Resume.pdf"
+                    href="/Shriyan_Yamali_Resume.pdf"
                     className="sm:hidden block"
                   >
                     <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
