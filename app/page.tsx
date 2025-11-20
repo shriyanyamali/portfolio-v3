@@ -778,6 +778,7 @@ export default function Portfolio() {
                   <div ref={awardsBottomRef} />
                 </section>
               </div>
+
               {/* Right column: Resume */}
               <div className="md:col-span-1 min-w-0">
                 <section
@@ -793,7 +794,7 @@ export default function Portfolio() {
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-2xl font-mono">Resume</h2>
                     <Link
-                      href="/Shriyan_Yamali_Resume.pdf"
+                      href="/Shriyan Yamali CV.pdf"
                       target="_blank"
                       className="sm:w-1/2 sm:block hidden"
                     >
@@ -831,7 +832,7 @@ export default function Portfolio() {
                     </Button>
                   </div>
                   <Link
-                    href="/Shriyan_Yamali_Resume.pdf"
+                    href="/Shriyan Yamali CV.pdf"
                     className="sm:hidden block"
                   >
                     <Button className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
