@@ -66,8 +66,8 @@ const timeline: TimelineItem[] = [
   {
     id: 5,
     date: "Sept 2024 — Jan 2025 | Newark, Delaware",
-    role: "Programming Intern",
-    org: "University of Delaware",
+    role: "Lab Member",
+    org: "University of Delaware DIRLab",
   },
   {
     id: 6,
